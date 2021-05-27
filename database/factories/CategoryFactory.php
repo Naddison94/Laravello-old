@@ -1,19 +1,20 @@
 <?php
 
+
 namespace Database\Factories;
 
-use App\Models\Post_Comment;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class Post_CommentFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Post_Comment::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +25,7 @@ class Post_CommentFactory extends Factory
     {
         return [
             'user_id'  => 1,
-            'post_id'  => 1,
-            'body'     => $this->faker->sentence,
+            'title'     => $this->faker->text,
             'archived' => false
         ];
     }

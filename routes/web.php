@@ -9,6 +9,9 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
+//    dd(Post::all());
+//
+//    Post::getPostCategory($id);
     return view('posts', [
         'posts' => Post::all()
     ]);

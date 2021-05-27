@@ -16,12 +16,12 @@ class Post extends model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'category_id',
         'title',
         'excerpt',
         'body',
         'img',
-        'user_id',
-        'category_id',
         'archived',
     ];
 
@@ -32,5 +32,30 @@ class Post extends model
         if (!$post) throw new ModelNotFoundException();
 
         return $post;
+    }
+
+//    public static function getPostCategory($id)
+//    {
+//
+//        $postCategory = static::all()->firstWhere('category_id', $id);
+//
+//        if (!$postCategory) throw new ModelNotFoundException();
+//
+//        return $postCategory;
+//    }
+
+//    public function postOwner()
+//    {
+//        return $this->belongsTo(User::class);
+//    }
+//
+//    public function postComments()
+//    {
+//        return $this->hasMany(_Comment.::class);
+//    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

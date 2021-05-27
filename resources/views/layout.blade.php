@@ -8,8 +8,8 @@
 
 <div>
     @yield('nav')
-    <a href="/">Home | </a>
-    <a href="<?php resource_path()?>/posts">Posts | </a>
+    <a href="/">Home</a> |
+    <a href="<?php resource_path()?>/posts">Posts</a> |
     <a href="<?php resource_path()?>/users">Users</a>
 </div>
 

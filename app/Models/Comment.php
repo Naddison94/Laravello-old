@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post_Category extends Model
+class Comment extends Model
 {
     use HasFactory;
 
-    public $table = 'posts_category';
+    public $table = 'comments';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +17,9 @@ class Post_Category extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
+        'user_id',
+        'post_id',
+        'body',
         'archived',
     ];
 }
