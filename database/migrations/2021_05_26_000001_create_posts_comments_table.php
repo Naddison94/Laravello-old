@@ -15,8 +15,9 @@ class CreatePostsCommentsTable extends Migration
     {
         Schema::create('posts_comments', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
+            $table->Integer('user_id');
+            $table->Integer('post_id');
             $table->text('body');
-            $table->integer('user_id');
             $table->timestamps();
             $table->boolean('archived')->default(false);
         });

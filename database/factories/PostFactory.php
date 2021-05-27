@@ -23,13 +23,13 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text,
-            'excerpt' => $this->faker->text,
-            'body' => $this->faker->text,
-            'img' => $this->faker->text,
-            'user_id' => 1,
+            'title'       => $this->faker->text,
+            'excerpt'     => $this->faker->text,
+            'body'        => $this->faker->text,
+            'img'         => $this->faker->image(),
+            'user_id'     => 1,
             'category_id' => 1,
-            'archived' => false
+            'archived'    => false
         ];
     }
 }

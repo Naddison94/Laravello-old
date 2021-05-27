@@ -15,13 +15,13 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
+            $table->Integer('user_id');
+            $table->Integer('category_id');
             $table->string('title');
             $table->string('excerpt');
             $table->text('body');
             $table->string('img');
             $table->timestamps();
-            $table->integer('user_id');
-            $table->integer('category_id');
             $table->boolean('archived')->default(false);
         });
     }
