@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -8,25 +9,27 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/posts', function () {
-//    dd(Post::all());
-//
-//    Post::getPostCategory($id);
-    return view('posts', [
-        'posts' => Post::all()
-    ]);
-});
-
 Route::get('/users', function () {
     return view('users', [
         'users' => User::all()
     ]);
 });
 
-//do a route to see all users on site with scott
+Route::get('/posts', function () {
+    return view('posts', [
+        'posts' => Post::all()
+    ]);
+});
+
 Route::get('/post/{id}', function ($id) {
     return view('post', [
         'post' => Post::findOrFail($id)
+    ]);
+});
+
+Route::get('/categories/{category}', function (Category $category) {
+    return view('posts', [
+        'posts' => $category->posts
     ]);
 });
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="<?php resource_path()?>/app.css">
 <title>Laravello</title>
 <header>
     @yield('header'){{--later make a compontent header that incorporates a logo etc, maybe put the nav in there--}}
