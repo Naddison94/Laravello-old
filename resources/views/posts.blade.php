@@ -13,19 +13,17 @@
                 </h1>
             </a>
 
-            <h2>
+            <p>
+                Post author: {{ $post->user->name }} | Post category: <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
+            </p>
+
+            <h3>
                 {{ $post->excerpt }}
-            </h2>
+            </h3>
 
             <p>
                 {{ $post->body }}
             </p>
-
-            <a href="/categories/{{ $post->category->id}}">
-                <p>
-                    {{ $post->category->title}}
-                </p>
-            </a>
         </article>
     @endforeach
 @endsection

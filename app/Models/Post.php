@@ -34,28 +34,18 @@ class Post extends model
         return $post;
     }
 
-//    public static function getPostCategory($id)
-//    {
-//
-//        $postCategory = static::all()->firstWhere('category_id', $id);
-//
-//        if (!$postCategory) throw new ModelNotFoundException();
-//
-//        return $postCategory;
-//    }
-
-//    public function postOwner()
-//    {
-//        return $this->belongsTo(User::class);
-//    }
-//
-//    public function postComments()
-//    {
-//        return $this->hasMany(_Comment.::class);
-//    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
