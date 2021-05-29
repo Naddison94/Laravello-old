@@ -22,3 +22,10 @@ article + article {
     padding-top: 3rem;
     border-top: 1px solid #c5c5c5;
 }
+
+.comment {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+}

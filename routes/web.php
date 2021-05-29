@@ -16,29 +16,51 @@ Route::get('/users', function () {
     ]);
 });
 
-Route::get('/posts', function () {
 
+Route::get('/posts', function () {
     Illuminate\Support\Facades\DB::listen(function ($query) {
         logger($query->sql);
     });
 
     return view('posts', [
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category', 'author')->get()
     ]);
 });
 
 Route::get('/post/{id}', function ($id) {
-    #dd(Post::with('user.comments')->findOrFail($id));
     return view('post', [
         'post' => Post::with('comments.user')->findOrFail($id)
     ]);
 });
 
+Route::get('/author/{author}', function (User $author) {
+
+    return view('posts', [
+        'posts' => $author->posts
+    ]);
+});
+
+//Route::get('/posts/user', function () {
+//
+//    return view('posts', [
+//        'posts' => Post::with('category')->get()
+//    ]);
+//});
+
 Route::get('/categories/{category}', function (Category $category) {
+
     return view('posts', [
         'posts' => $category->posts
     ]);
 });
+
+//Route::get('/add', function () {
+//    return view('add');
+//});
+//
+//Route::post('/add', function () {
+//    return view('add');
+//});
 
 Route::get('/welcome', function () {
     return view('welcome');

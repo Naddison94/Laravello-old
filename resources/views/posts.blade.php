@@ -4,17 +4,21 @@
 
 @endsection
 
+@section('header')
+    <a href="/addPost">Add Post</a>
+@endsection
+
 @section('body')
     @foreach($posts as $post)
         <article>
-            <a href="post/<?=$post->id?>">
+            <a href="/post/<?=$post->id?>">
                 <h1>
                     {{ $post->title }}
                 </h1>
             </a>
 
             <p>
-                Post author: {{ $post->user->name }} | Post category: <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
+                <strong>Post author:</strong> <a href="/author/<?= $post->author->id ?>">{{ $post->author->name }}</a> | <strong>Post category:</strong> <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
             </p>
 
             <h3>
