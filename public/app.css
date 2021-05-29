@@ -14,13 +14,15 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 80%;
 }
 
 article + article {
     margin-top: 3rem;
     padding-top: 3rem;
     border-top: 1px solid #c5c5c5;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
 }
 
 .comment {
@@ -28,4 +30,23 @@ article + article {
     padding-bottom: 1rem;
     border-top: 1px solid #c5c5c5;
     border-bottom: 1px solid #c5c5c5;
+}
+
+.navBtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #4a5568;
 }

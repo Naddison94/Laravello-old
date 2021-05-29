@@ -12,22 +12,25 @@
     @foreach($posts as $post)
         <article>
             <a href="/post/<?=$post->id?>">
-                <h1>
+                <h1 class="center">
                     {{ $post->title }}
                 </h1>
             </a>
 
-            <p>
+            <p class="center">
                 <strong>Post author:</strong> <a href="/author/<?= $post->author->id ?>">{{ $post->author->name }}</a> | <strong>Post category:</strong> <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
             </p>
 
-            <h3>
+            <h3 class="center">
                 {{ $post->excerpt }}
             </h3>
 
-            <p>
-                {{ $post->body }}
+            <p class="center">
+                {!! $post->body !!}
             </p>
+
+            <img class="center" src="/img/{{ $post->img }}">
+
         </article>
     @endforeach
 @endsection

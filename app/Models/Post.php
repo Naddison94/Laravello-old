@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Collection;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class Post extends model
 {
@@ -39,26 +41,16 @@ class Post extends model
 
     public static function store(Request $request)
     {
-        $post = new Post;
 
-        $post->title = $request->title;
+        $post          = new Post;
+        $post->title   = $request->title;
         $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
+        $post->body    = $request->body;
+        $post->img     = $request->img;
 
         $post->save();
-//        dd('1232');
-//       $post = Post::create([
-//            'title' => $request->title,
-//            'excerpt' => $request->excerpt,
-//            'body'  => $request->body
-//        ]);
-//        DB::table('posts')->insert($post);
-//        #$post = static::create($data);
-//        #return redirect('/add');
-//       # return $post;
-//        return redirect('/');
 
-            return view('home');
+        return view('home');
     }
 
     public function author()

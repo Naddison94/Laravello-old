@@ -16,6 +16,8 @@
             <input type="text" id="excerpt" name="excerpt"><br><br>
             <label for="body">Post Body:</label>
             <textarea id="body" name="body" cols="50" rows="8"></textarea><br><br>
+            <label for="img">Select image:</label>
+            <input type="file" id="img" name="img"><br><br>
             <input type="submit" value="Submit">
         </form>
     </div>
