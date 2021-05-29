@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <a href="/addPost">Add Post</a>
+    <a href="/add">Add Post</a>
 @endsection
 
 @section('body')

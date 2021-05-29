@@ -4,6 +4,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 //use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
@@ -15,7 +17,6 @@ Route::get('/users', function () {
         'users' => User::all()
     ]);
 });
-
 
 Route::get('/posts', function () {
     Illuminate\Support\Facades\DB::listen(function ($query) {
@@ -34,7 +35,6 @@ Route::get('/post/{id}', function ($id) {
 });
 
 Route::get('/author/{author}', function (User $author) {
-
     return view('posts', [
         'posts' => $author->posts
     ]);
@@ -48,19 +48,22 @@ Route::get('/author/{author}', function (User $author) {
 //});
 
 Route::get('/categories/{category}', function (Category $category) {
-
     return view('posts', [
         'posts' => $category->posts
     ]);
 });
 
-//Route::get('/add', function () {
-//    return view('add');
-//});
-//
-//Route::post('/add', function () {
-//    return view('add');
-//});
+Route::get('/add', function (User $author) {
+    return view('add', [
+        'author' => $author
+    ]);
+});
+
+Route::post('/add/save', function (Request $request) {
+    return view('add', [
+        Post::store($request)
+    ]);
+});
 
 Route::get('/welcome', function () {
     return view('welcome');
