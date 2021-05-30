@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Category extends Model
 {
@@ -21,11 +22,16 @@ class Category extends Model
         'archived',
     ];
 
-//    public static function store($category_id)
-//    {
-//        $post          = new Category();
-//        $post->id   = $category_id;
-//    }
+    public static function store(Request $request)
+    {
+    
+        $category        = new Category();
+        $category->title = $request->title;
+
+        if ($category->save()) {
+            redirect('home');
+        }
+    }
 
     public function posts()
     {

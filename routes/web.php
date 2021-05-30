@@ -54,6 +54,13 @@ Route::get('/categories/{category}', function (Category $category) {
     ]);
 });
 
+//later send in user when registration is step up
+Route::get('/add/category', function (Category $category) {
+    return view('add', [
+        'category' => $category
+    ]);
+});
+
 Route::get('/add', function (User $author) {
     return view('add', [
         'author' => $author,
@@ -63,10 +70,19 @@ Route::get('/add', function (User $author) {
 
 Route::post('/add/save', function (Request $request) {
 //    $request->image->store('uploads', 'public');
+
     return view('add', [
         Post::store($request),
         'categories' => Category::all()
 
+    ]);
+});
+
+Route::post('/add/save/category', function (Request $request) {
+//    $request->image->store('uploads', 'public');
+
+    return view('add', [
+        Category::store($request)
     ]);
 });
 

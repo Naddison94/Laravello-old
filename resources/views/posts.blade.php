@@ -5,12 +5,12 @@
 @endsection
 
 @section('header')
-    <br>
-<div class="center">
-    <button>
-        <a class="button1" href="/add">Add Post</a>
-    </button>
-</div>
+{{--    <br>--}}
+{{--<div class="center">--}}
+{{--    <button>--}}
+{{--        <a class="button1" href="/add">Add Post</a>--}}
+{{--    </button>--}}
+{{--</div>--}}
 @endsection
 
 @section('body')

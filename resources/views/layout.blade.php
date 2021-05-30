@@ -8,7 +8,7 @@
     | <a class="navBtn" href="/">Home</a> |
     <a class="navBtn" href="<?php resource_path()?>/posts">Posts</a> |
     <a class="navBtn" href="<?php resource_path()?>/add">Add Post</a> |
-    <a class="navBtn" href="<?php resource_path()?>/add">Add Category</a> |
+    <a class="navBtn" href="<?php resource_path()?>/add/category">Add Category</a> |
 {{--    <a class="navBtn" href="<?php resource_path()?>/users">Profile</a>--}}
 </div>
 
