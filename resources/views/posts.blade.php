@@ -36,9 +36,9 @@
                 {{ $post->excerpt }}
             </h3>
 
-            <p class="center">
-                {!! $post->body !!}
-            </p>
+{{--            <p class="center">--}}
+{{--                {!! $post->body !!}--}}
+{{--            </p>--}}
 
             @if($post->img) <img class="center" src="/uploads/{{ $post->img }}">@endif
         </article>

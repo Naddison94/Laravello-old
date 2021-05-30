@@ -29,8 +29,9 @@ class Category extends Model
         $category->title = $request->title;
 
         if ($category->save()) {
-            redirect('home');
+           return redirect('home');
         }
+        //else what
     }
 
     public function posts()

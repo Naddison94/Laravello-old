@@ -6,21 +6,24 @@
 
 @section('body')
     <article>
+            <a href="<?php resource_path()?>/post/<?= $post->id ?>/edit">Edit this post</a>
         <h1>
             {{ $post->title }}
         </h1>
 
         <p>
-            <strong>Post author:</strong> {{ $post->author->name }} | <strong>Post category:</strong><a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
+            <strong>Post author:</strong> {{ $post->author->name }} | <strong>Post category:</strong><a href="/categories/{{ $post->category->id}}"> {{ $post->category->title}}</a>
         </p>
 
         <h3>
             {{ $post->excerpt }}
         </h3>
 
-        <p>
-            {{ $post->body }}
+        <p class="center">
+            {!! $post->body !!}
         </p>
+
+        @if($post->img) <img class="center" src="/uploads/{{ $post->img }}">@endif
     </article>
 
     @foreach($post->comments as $comment)

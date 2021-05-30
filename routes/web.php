@@ -61,6 +61,19 @@ Route::get('/add/category', function (Category $category) {
     ]);
 });
 
+Route::get('/post/{id}/edit', function ($id,Post $post) {
+    return view('edit', [
+        'id'    => $id,
+        'post' => $post
+    ]);
+});
+
+Route::post('/post/{id}/edit/save', function (Request $request) {
+    return view('edit', [
+        Post::edit($request)
+    ]);
+});
+
 Route::get('/add', function (User $author) {
     return view('add', [
         'author' => $author,

@@ -64,6 +64,23 @@ class Post extends model
         return view('home');
     }
 
+    public static function edit(Request $request)
+    {
+//        dd($request);
+//        dd(Post::find($request->post_id));
+//dd(Post::find($request->post_id));
+//        $post = new Post;
+        $post = Post::find($request->post_id);
+        $post->title = $request->title;
+        $post->excerpt = $request->excerpt;
+        $post->body = $request->body;
+        $post->img = $request->img;
+
+//        dd($post);
+        $post->save();
+        return redirect('home');
+    }
+
     public function author()
     {
         return $this->belongsTo(User::class, "user_id");
