@@ -24,7 +24,7 @@ class Category extends Model
 
     public static function store(Request $request)
     {
-    
+
         $category        = new Category();
         $category->title = $request->title;
 

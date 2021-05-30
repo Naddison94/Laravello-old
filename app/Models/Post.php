@@ -41,17 +41,21 @@ class Post extends model
 
     public static function store(Request $request)
     {
+        $fileName = false;
         //later abstract uploads into sub dirs that are a post id, or add some logic for duplicated files in the same dir
-        $fileName = $request->file('image')->getClientOriginalName();
+        if ($request->file('image')) {
+            $fileName = $request->file('image')->getClientOriginalName();
+        }
+
 
         $post              = new Post;
         $post->category_id = $request->category_id;
         $post->title       = $request->title;
         $post->excerpt     = $request->excerpt;
         $post->body        = $request->body;
-        $post->img         = $fileName;
+        $post->img         = $fileName ?: Null;
 
-        if ($post->save()) {
+        if ($post->save() && $fileName != false) {
             $request->image->move(public_path('uploads'), $fileName);
         }
 
