@@ -55,13 +55,16 @@ Route::get('/categories/{category}', function (Category $category) {
 
 Route::get('/add', function (User $author) {
     return view('add', [
-        'author' => $author
+        'author' => $author,
+        'categories' => Category::all()
     ]);
 });
 
 Route::post('/add/save', function (Request $request) {
     return view('add', [
-        Post::store($request)
+        Post::store($request),
+        'categories' => Category::all()
+
     ]);
 });
 

@@ -41,14 +41,16 @@ class Post extends model
 
     public static function store(Request $request)
     {
-
-        $post          = new Post;
-        $post->title   = $request->title;
-        $post->excerpt = $request->excerpt;
-        $post->body    = $request->body;
-        $post->img     = $request->img;
+        $post              = new Post;
+        $post->category_id = $request->category_id;
+        $post->title       = $request->title;
+        $post->excerpt     = $request->excerpt;
+        $post->body        = $request->body;
+        $post->img         = $request->img;
 
         $post->save();
+
+        #Category::store($request->category_id);
 
         return view('home');
     }

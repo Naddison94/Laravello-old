@@ -5,7 +5,12 @@
 @endsection
 
 @section('header')
-    <a href="/add">Add Post</a>
+    <br>
+<div class="center">
+    <button>
+        <a class="button1" href="/add">Add Post</a>
+    </button>
+</div>
 @endsection
 
 @section('body')
@@ -30,7 +35,6 @@
             </p>
 
             <img class="center" src="/img/{{ $post->img }}">
-
         </article>
     @endforeach
 @endsection

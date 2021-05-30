@@ -5,11 +5,11 @@
 
 <div class="nav">
     @yield('nav')
-    <a class="navBtn" href="/">Home</a> |
+    | <a class="navBtn" href="/">Home</a> |
     <a class="navBtn" href="<?php resource_path()?>/posts">Posts</a> |
-    <a class="navBtn" href="<?php resource_path()?>/users">Users</a> |
-    <a class="navBtn" href="<?php resource_path()?>/users">Kek</a> |
-    <a class="navBtn" href="<?php resource_path()?>/users">Bois</a>
+    <a class="navBtn" href="<?php resource_path()?>/add">Add Post</a> |
+    <a class="navBtn" href="<?php resource_path()?>/add">Add Category</a> |
+{{--    <a class="navBtn" href="<?php resource_path()?>/users">Profile</a>--}}
 </div>
 
 <div></div>

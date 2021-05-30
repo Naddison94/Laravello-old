@@ -21,6 +21,12 @@ class Category extends Model
         'archived',
     ];
 
+//    public static function store($category_id)
+//    {
+//        $post          = new Category();
+//        $post->id   = $category_id;
+//    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
