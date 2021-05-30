@@ -8,8 +8,9 @@
 <!--show categories, later put them in a drop down to assign to added post-->
     <br><br>
     <div>
-        <form action="/add/save" method="POST">
-            {{ csrf_field() }}
+        <form action="/add/save" method="POST" enctype="multipart/form-data">
+
+            @csrf
             <h3>
                 Current categories
             </h3>
@@ -27,8 +28,8 @@
             <input type="text" id="excerpt" name="excerpt"><br><br>
             <label for="body">Post Body:</label>
             <textarea id="body" name="body" cols="50" rows="8"></textarea><br><br>
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img"><br><br>
+            <label for="image">Select image:</label>
+            <input type="file" id="image" name="image"><br><br>
             <input type="submit" value="Submit">
         </form>
     </div>

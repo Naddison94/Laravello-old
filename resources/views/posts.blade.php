@@ -34,7 +34,7 @@
                 {!! $post->body !!}
             </p>
 
-            <img class="center" src="/img/{{ $post->img }}">
+            <img class="center" src="/uploads/{{ $post->img }}">
         </article>
     @endforeach
 @endsection

@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Collection;
-use Symfony\Component\HttpFoundation\Request;
-
+//use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class Post extends model
 {
@@ -41,14 +41,19 @@ class Post extends model
 
     public static function store(Request $request)
     {
+        //later abstract uploads into sub dirs that are a post id, or add some logic for duplicated files in the same dir
+        $fileName = $request->file('image')->getClientOriginalName();
+
         $post              = new Post;
         $post->category_id = $request->category_id;
         $post->title       = $request->title;
         $post->excerpt     = $request->excerpt;
         $post->body        = $request->body;
-        $post->img         = $request->img;
+        $post->img         = $fileName;
 
-        $post->save();
+        if ($post->save()) {
+            $request->image->move(public_path('uploads'), $fileName);
+        }
 
         #Category::store($request->category_id);
 

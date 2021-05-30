@@ -3,8 +3,9 @@
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpFoundation\Request;
+//use Symfony\Component\HttpFoundation\Request;
 
 //use Illuminate\Support\Facades\DB;
 
@@ -61,6 +62,7 @@ Route::get('/add', function (User $author) {
 });
 
 Route::post('/add/save', function (Request $request) {
+//    $request->image->store('uploads', 'public');
     return view('add', [
         Post::store($request),
         'categories' => Category::all()
