@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Comment extends Model
 {
@@ -22,6 +23,17 @@ class Comment extends Model
         'comment',
         'archived',
     ];
+
+    public static function store(Request $request)
+    {
+        $comment = new Comment();
+        #$comment->user_id = $request->user_id;
+        $comment->post_id = $request->post_id;
+        $comment->body = $request->comment;
+        $comment->save();
+        return redirect('home');
+//        return redirect(resource_path().'/post/'.$request->post_id);
+    }
 
     public function posts()
     {

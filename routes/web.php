@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -96,6 +97,12 @@ Route::post('/add/save/category', function (Request $request) {
 
     return view('add', [
         Category::store($request)
+    ]);
+});
+
+Route::post('/add/save/comment', function (Request $request) {
+    return view('add', [
+        Comment::store($request)
     ]);
 });
 
