@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
@@ -20,15 +21,17 @@ Route::get('/users', function () {
     ]);
 });
 
-Route::get('/posts', function () {
-    Illuminate\Support\Facades\DB::listen(function ($query) {
-        logger($query->sql);
-    });
+Route::resource('/posts',PostsController::class);
 
-    return view('posts', [
-        'posts' => Post::latest()->with('category', 'author')->get()
-    ]);
-});
+//Route::get('/posts', function () {
+//    Illuminate\Support\Facades\DB::listen(function ($query) {
+//        logger($query->sql);
+//    });
+//
+//    return view('posts', [
+//        'posts' => Post::latest()->with('category', 'author')->get()
+//    ]);
+//});
 
 Route::get('/post/{id}', function ($id) {
     return view('post', [

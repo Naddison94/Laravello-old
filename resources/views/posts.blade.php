@@ -14,6 +14,7 @@
 @endsection
 
 @section('body')
+<!--    --><?php //dd('123')?>
     @foreach($posts as $post)
         <article>
             <a href="/post/<?=$post->id?>">

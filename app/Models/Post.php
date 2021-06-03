@@ -30,6 +30,10 @@ class Post extends model
         'archived',
     ];
 
+    public function allPosts()
+    {
+            return Post::all()->where('archived', 0);
+    }
     public static function findOrFail($id)
     {
         $post = static::all()->firstWhere('id', $id);
