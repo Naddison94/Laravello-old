@@ -7,21 +7,15 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-//use Symfony\Component\HttpFoundation\Request;
 
-//use Illuminate\Support\Facades\DB;
-
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/users', function () {
-    return view('users', [
-        'users' => User::all()
-    ]);
-});
-
-Route::resource('/posts',PostsController::class);
+Route::get('/posts', [PostsController::class, 'index']);
+Route::get('/post/{id}', [PostsController::class, 'show']);
+Route::get('/post/{id}/edit',[PostsController::class, 'edit']);
+Route::post('/post/{id}/edit/save', [PostsController::class, 'update']);
+Route::get('/add', [PostsController::class, 'create']);
+Route::post('/add/save', [PostsController::class, 'store']);
+Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
+Route::post('/post/{id}/delete/archive', [PostsController::class, 'archive']);
 
 //Route::get('/posts', function () {
 //    Illuminate\Support\Facades\DB::listen(function ($query) {
@@ -33,11 +27,40 @@ Route::resource('/posts',PostsController::class);
 //    ]);
 //});
 
-Route::get('/post/{id}', function ($id) {
-    return view('post', [
-        'post' => Post::with('comments.user')->findOrFail($id)
-    ]);
-});
+//Route::get('/post/{id}', function ($id) {
+//    return view('post', [
+//        'post' => Post::with('comments.user')->findOrFail($id)
+//    ]);
+//});
+
+//Route::get('/post/{id}/edit', function ($id,Post $post) {
+//    return view('edit', [
+//        'id'    => $id,
+//        'post' => $post
+//    ]);
+//});
+
+//Route::post('/post/{id}/edit/save', function (Request $request) {
+//    return view('edit', [
+//        Post::edit($request)
+//    ]);
+//});
+
+//Route::get('/add', function (User $author) {
+//    return view('add', [
+//        'author' => $author,
+//        'categories' => Category::all()
+//    ]);
+//});
+
+//Route::post('/add/save', function (Request $request) {
+////    $request->image->store('uploads', 'public');
+//    return view('add', [
+//        Post::store($request),
+//        'categories' => Category::all()
+//
+//    ]);
+//});
 
 Route::get('/author/{author}', function (User $author) {
     return view('posts', [
@@ -45,6 +68,7 @@ Route::get('/author/{author}', function (User $author) {
     ]);
 });
 
+//not implemented
 //Route::get('/posts/user', function () {
 //
 //    return view('posts', [
@@ -65,39 +89,8 @@ Route::get('/add/category', function (Category $category) {
     ]);
 });
 
-Route::get('/post/{id}/edit', function ($id,Post $post) {
-    return view('edit', [
-        'id'    => $id,
-        'post' => $post
-    ]);
-});
-
-Route::post('/post/{id}/edit/save', function (Request $request) {
-    return view('edit', [
-        Post::edit($request)
-    ]);
-});
-
-Route::get('/add', function (User $author) {
-    return view('add', [
-        'author' => $author,
-        'categories' => Category::all()
-    ]);
-});
-
-Route::post('/add/save', function (Request $request) {
-//    $request->image->store('uploads', 'public');
-
-    return view('add', [
-        Post::store($request),
-        'categories' => Category::all()
-
-    ]);
-});
-
 Route::post('/add/save/category', function (Request $request) {
 //    $request->image->store('uploads', 'public');
-
     return view('add', [
         Category::store($request)
     ]);
@@ -111,4 +104,14 @@ Route::post('/add/save/comment', function (Request $request) {
 
 Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/users', function () {
+    return view('users', [
+        'users' => User::all()
+    ]);
 });

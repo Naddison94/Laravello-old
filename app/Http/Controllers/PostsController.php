@@ -2,82 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
     public function index()
     {
-//        $post = new Post();
-        $posts =  Post::all();
-
-        return  view('posts', compact('posts'));
+        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->get();
+        return view('posts', compact('posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(User $author)
     {
-        //
+        return view('add', [
+            'author' => $author,
+            'categories' => Category::all()
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        return view('add', [
+            Post::store($request),
+            'categories' => Category::all()]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return  view('post', compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($id, Post $post)
     {
-        //
+        return view('edit', [
+            'id'    => $id,
+            'post' => $post
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        return Post::edit($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id, Post $post)
     {
-        //
+        return view('delete', [
+            'id'    => $id,
+            'post' => $post
+        ]);
+    }
+    public function archive(Request $request)
+    {
+        return Post::archive($request);
     }
 }

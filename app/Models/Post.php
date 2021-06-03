@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Collection;
-//use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Http\Request;
 
 class Post extends model
@@ -30,10 +29,11 @@ class Post extends model
         'archived',
     ];
 
-    public function allPosts()
-    {
-            return Post::all()->where('archived', 0);
-    }
+//    public function allPosts()
+//    {
+//            return Post::all()->where('archived', 0);
+//    }
+
     public static function findOrFail($id)
     {
         $post = static::all()->firstWhere('id', $id);
@@ -50,7 +50,6 @@ class Post extends model
         if ($request->file('image')) {
             $fileName = $request->file('image')->getClientOriginalName();
         }
-
 
         $post              = new Post;
         $post->category_id = $request->category_id;
@@ -70,19 +69,25 @@ class Post extends model
 
     public static function edit(Request $request)
     {
-//        dd($request);
-//        dd(Post::find($request->post_id));
-//dd(Post::find($request->post_id));
-//        $post = new Post;
         $post = Post::find($request->post_id);
         $post->title = $request->title;
         $post->excerpt = $request->excerpt;
         $post->body = $request->body;
-        $post->img = $request->img;
+        $post->img = $request->image;
 
-//        dd($post);
         $post->save();
-        return redirect('home');
+        
+        return redirect('/');
+    }
+
+    public static function archive(Request $request)
+    {
+        $post = Post::find($request->post_id);
+        $post->archived = 1;
+
+        $post->save();
+
+        return redirect('/');
     }
 
     public function author()
