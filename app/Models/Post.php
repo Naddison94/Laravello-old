@@ -56,7 +56,7 @@ class Post extends model
         $post->title       = $request->title;
         $post->excerpt     = $request->excerpt;
         $post->body        = $request->body;
-        $post->img         = $fileName ?: Null;
+        $post->img         = $fileName ?: false;
 
         if ($post->save() && $fileName != false) {
             $request->image->move(public_path('uploads'), $fileName);
@@ -69,15 +69,22 @@ class Post extends model
 
     public static function edit(Request $request)
     {
-        $post = Post::find($request->post_id);
-        $post->title = $request->title;
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->img = $request->image;
+        $fileName = false;
+        if ($request->file('image')) {
+            $fileName = $request->file('image')->getClientOriginalName();
+        }
 
-        $post->save();
-        
-        return redirect('/');
+        $post = Post::find($request->post_id);
+        $post->title = $request->title ?: $post->title;
+        $post->excerpt = $request->excerpt ?: $post->excerpt;
+        $post->body = $request->body ?: $post->body;
+        $post->img = $fileName ?: $post->img;
+
+        if ($post->save() && $fileName != false) {
+            $request->image->move(public_path('uploads'), $fileName);
+        }
+
+        return redirect('/post/'. $post->id);
     }
 
     public static function archive(Request $request)

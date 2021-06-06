@@ -5,9 +5,9 @@
 @endsection
 
 @section('body')
-{{--<!--    --><?php dd($post) ?>--}}
+    <?php dd($post) ?>
 <div>
-    <form action="/post/{id}/edit/save" method="POST">
+    <form action="/post/{id}/edit/save" method="POST" enctype="multipart/form-data">
         @csrf
         <h3>
             Edit category
