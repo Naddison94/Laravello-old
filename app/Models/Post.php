@@ -52,7 +52,7 @@ class Post extends model
         }
 
         $post              = new Post;
-        $post->category_id = $request->category_id;
+        $post->category_id = $request->category_id ?: DEFAULT_CATEGORY;
         $post->title       = $request->title;
         $post->excerpt     = $request->excerpt;
         $post->body        = $request->body;
