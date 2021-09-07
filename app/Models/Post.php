@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 use phpDocumentor\Reflection\Types\Collection;
 use Illuminate\Http\Request;
 
@@ -43,9 +44,9 @@ class Post extends model
         return $post;
     }
 
-    public static function store(Request $request)
+    public static function store(Request $request): view
     {
-        $fileName = false;
+        $fileName = null;
         //later abstract uploads into sub dirs that are a post id, or add some logic for duplicated files in the same dir
         if ($request->file('image')) {
             $fileName = $request->file('image')->getClientOriginalName();
@@ -56,7 +57,7 @@ class Post extends model
         $post->title       = $request->title;
         $post->excerpt     = $request->excerpt;
         $post->body        = $request->body;
-        $post->img         = $fileName ?: false;
+        $post->img         = $fileName;
 
         if ($post->save() && $fileName != false) {
             $request->image->move(public_path('uploads'), $fileName);
