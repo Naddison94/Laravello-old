@@ -84,7 +84,7 @@ class Post extends model
             $request->image->move(public_path('uploads'), $fileName);
         }
 
-        return redirect('/post/'. $post->id);
+        return redirect('/post/' . $post->id);
     }
 
     public static function archive(Request $request)

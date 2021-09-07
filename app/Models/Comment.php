@@ -30,9 +30,12 @@ class Comment extends Model
         #$comment->user_id = $request->user_id;
         $comment->post_id = $request->post_id;
         $comment->body = $request->comment;
-        $comment->save();
-        return redirect('home');
-//        return redirect(resource_path().'/post/'.$request->post_id);
+
+        if ($comment->body) {
+            $comment->save();
+        }
+
+        return redirect('/post/' . $request->post_id);
     }
 
     public function posts()
