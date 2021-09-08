@@ -5,7 +5,7 @@
 @endsection
 
 @section('body')
-    <?php dd($post) ?>
+
 <div>
     <form action="/post/{id}/edit/save" method="POST" enctype="multipart/form-data">
         @csrf
