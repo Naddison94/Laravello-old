@@ -24,14 +24,15 @@ class Category extends Model
 
     public static function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:45'
+        ]);
 
-        $category        = new Category();
+        $category = new Category();
         $category->title = $request->title;
+        $category->save();
 
-        if ($category->save()) {
-           return redirect('home');
-        }
-        //else what
+        return redirect('home');
     }
 
     public function posts()

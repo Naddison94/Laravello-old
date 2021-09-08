@@ -44,7 +44,7 @@ class Post extends model
         return $post;
     }
 
-    public static function store(Request $request): view
+    public static function store(Request $request)
     {
         $fileName = null;
         //later abstract uploads into sub dirs that are a post id, or add some logic for duplicated files in the same dir
@@ -52,20 +52,20 @@ class Post extends model
             $fileName = $request->file('image')->getClientOriginalName();
         }
 
-        $post              = new Post;
+        $post = new Post;
         $post->category_id = $request->category_id ?: DEFAULT_CATEGORY;
-        $post->title       = $request->title;
-        $post->excerpt     = $request->excerpt;
-        $post->body        = $request->body;
-        $post->img         = $fileName;
+        $post->title = $request->title;
+        $post->excerpt = $request->excerpt;
+        $post->body = $request->body;
+        $post->img = $fileName;
 
         if ($post->save() && $fileName != false) {
             $request->image->move(public_path('uploads'), $fileName);
         }
 
         #Category::store($request->category_id);
-
-        return view('home');
+        return $post;
+        #return redirect("/post/" . $post->id);
     }
 
     public static function edit(Request $request)

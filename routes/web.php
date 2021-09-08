@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostsController;
 use App\Models\Category;
 use App\Models\Comment;
@@ -16,46 +17,37 @@ Route::post('/add/save', [PostsController::class, 'store']);
 Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
 Route::post('/post/{id}/delete/archive', [PostsController::class, 'archive']);
 
+Route::get('/add/category', [CategoryController::class, 'create']);
+Route::post('/add/save/category', [CategoryController::class, 'store']);
+
+//change this later to be in a filtered posts controller
+Route::get('/categories/{category}', function (Category $category) {
+    return view('posts', [
+        'posts' => $category->posts
+    ]);
+});
+//change this later to be in a filtered posts controller
 Route::get('/author/{author}', function (User $author) {
     return view('posts', [
         'posts' => $author->posts
     ]);
 });
 
-Route::get('/categories/{category}', function (Category $category) {
-    return view('posts', [
-        'posts' => $category->posts
-    ]);
-});
-
-Route::get('/add/category', function (Category $category) {
-    return view('add', [
-        'category' => $category
-    ]);
-});
-
-Route::post('/add/save/category', function (Request $request) {
-    return view('add', [
-        Category::store($request)
-    ]);
-});
-
+//add a comment controller
 Route::post('/add/save/comment', function (Request $request) {
     return view('add', [
         Comment::store($request)
     ]);
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/', function () {
-    return view('home');
-});
-
+//users controller
 Route::get('/users', function () {
     return view('users', [
         'users' => User::all()
     ]);
+});
+
+Route::get('/', function () {
+    return view('home');
 });

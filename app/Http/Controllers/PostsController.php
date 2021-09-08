@@ -25,9 +25,14 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        return view('add', [
-            Post::store($request),
-            'categories' => Category::all()]);
+        $validated = $request->validate([
+            'title' => 'required|max:80'
+        ]);
+
+        $newPost = Post::store($request);
+
+        $post = Post::findOrFail($newPost->id);
+        return  view('post', compact('post'));
     }
 
     public function show($id)
