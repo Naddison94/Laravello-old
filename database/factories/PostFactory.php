@@ -23,13 +23,12 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title'       => $this->faker->text,
-            'excerpt'     => $this->faker->text,
-            'body'        => $this->faker->text,
-            'img'         => $this->faker->image(),
-            'user_id'     => $this->faker->numberBetween(1, 10),
-            'category_id' => $this->faker->numberBetween(1, 10),
-            'archived'    => false
+            'title'       => 'This is the first post',
+            'excerpt'     => 'DB:Seed',
+            'body'        => 'This is the first post made to my site. This post was added via a the DB:Seed command',
+            'img'         => 'default_image.jpg',
+            'user_id'     => 1,
+            'category_id' => 1,
         ];
     }
 }

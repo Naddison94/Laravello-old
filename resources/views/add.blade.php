@@ -51,11 +51,12 @@
                     Current categories
                 </h3>
 
-                @foreach($categories as $category)
-                    <label for="category_id">&bull; <?=$category->title?></label>
-                    <input type="radio" id="category_id" name="category_id" value="<?= $category->id ?>"><br>
-                @endforeach
-
+                <label for="category_id">Select a category for this post</label>
+                <select id="category_id" name="category_id">
+                    @foreach($categories as $category)
+                            <option value="<?= $category->id ?>"><?= $category->title ?></option>
+                    @endforeach
+                </select>
                 <hr>
 
                 <label for="title">Post Title</label>

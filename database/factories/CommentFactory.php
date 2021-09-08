@@ -25,8 +25,7 @@ class CommentFactory extends Factory
         return [
             'user_id'  => 1,
             'post_id'  => 1,
-            'comment'     => $this->faker->sentence,
-            'archived' => false
+            'comment'  => $this->faker->sentence
         ];
     }
 }

@@ -12,10 +12,11 @@
             {{ $post->title }}
         </h1>
 
-        <p>
-            <strong>Post author:</strong> {{ $post->author->name }} | <strong>Post category:</strong><a href="/categories/{{ $post->category->id}}"> {{ $post->category->title}}</a>
-        </p>
-
+        @if($post->author)
+            <p>
+                <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/categories/{{ $post->category->id}}"> {{ $post->category->title}}</a>
+            </p>
+        @endif
         <h3>
             {{ $post->excerpt }}
         </h3>
@@ -37,8 +38,8 @@
     @foreach($post->comments as $comment)
     <div class="comment">
         <p>
-            Comment #{{$comment->id}}: {{ $comment->body }} <br>
-            <label><strong>Comment made by:</strong> {{ $comment->user->name }}</label>
+            Comment #{{$comment->id}}: {{ $comment->comment }} <br>
+            @if($comment->user) <label><strong>Comment made by:</strong> {{ $comment->user->username }}</label>@endif
         </p>
     </div>
     @endforeach

@@ -14,10 +14,10 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id()->unique()->autoIncrement();
-            $table->foreignId('user_id');
+            $table->increments('id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('post_id');
-            $table->text('body');
+            $table->text('comment');
             $table->timestamps();
             $table->boolean('archived')->default(false);
         });

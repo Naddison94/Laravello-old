@@ -5,16 +5,10 @@
 @endsection
 
 @section('header')
-{{--    <br>--}}
-{{--<div class="center">--}}
-{{--    <button>--}}
-{{--        <a class="button1" href="/add">Add Post</a>--}}
-{{--    </button>--}}
-{{--</div>--}}
+
 @endsection
 
 @section('body')
-<!--    --><?php //dd('123')?>
     @foreach($posts as $post)
         <article>
             <a href="/post/<?=$post->id?>">
@@ -24,9 +18,14 @@
             </a>
 
             <p class="center">
-                <strong>Post author:</strong>
-                <a href="/author/<?= $post->author->id ?>">{{ $post->author->name }}</a> | <strong>Post category:</strong>
+
+                @if($post->author)
+                    <strong>Post author:</strong>
+                    <a href="/author/<?= $post->author->id ?>">{{ $post->author->username }}</a> |
+                @endif
+
                 @if($post->category)
+                    <strong>Post category:</strong>
                     <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
                 @else
                     No assigned category
@@ -36,10 +35,6 @@
             <h3 class="center">
                 {{ $post->excerpt }}
             </h3>
-
-{{--            <p class="center">--}}
-{{--                {!! $post->body !!}--}}
-{{--            </p>--}}
 
             @if($post->img) <img class="center" src="/uploads/{{ $post->img }}">@endif
         </article>

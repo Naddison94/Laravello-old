@@ -8,11 +8,11 @@
     @foreach($users as $user)
         <article>
             <h1>
-                {{ $user->name }}
+                Username: {{ $user->username }}
             </h1>
 
             <p>
-                {{ $user->email }}
+                Full name: {{ $user->forename }} {{ $user->surname }}
             </p>
         </article>
     @endforeach

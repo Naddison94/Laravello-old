@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(10)->create();
-         Post::factory(10)->create();
-         Comment::factory(10)->create();
-         Category::factory(10)->create();
+        //todo change from factory to seeders as I am no longer using faker
+         User::factory(1)->create();
+         Post::factory(1)->create();
+         Comment::factory(1)->create();
+         Category::factory(1)->create();
     }
 }
