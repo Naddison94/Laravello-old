@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class CategoryController
 {
+    public function getFilteredPostsByCategory(Category $category)
+    {
+        return view('posts', [
+            'posts' => $category->posts
+        ]);
+    }
+
     public function create(Category $category)
     {
         return view('add', [

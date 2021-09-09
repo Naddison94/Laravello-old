@@ -1,53 +1,34 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostsController;
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/posts', [PostsController::class, 'index']);
-Route::get('/post/{id}', [PostsController::class, 'show']);
-Route::get('/post/{id}/edit',[PostsController::class, 'edit']);
-Route::post('/post/{id}/edit/save', [PostsController::class, 'update']);
-Route::get('/add', [PostsController::class, 'create']);
-Route::post('/add/save', [PostsController::class, 'store']);
-Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
-Route::post('/post/{id}/delete/archive', [PostsController::class, 'archive']);
+/*** PostController ***/
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/post/{id}/edit',[PostController::class, 'edit']);
+Route::post('/post/{id}/edit/save', [PostController::class, 'update']);
+Route::get('/add', [PostController::class, 'create']);
+Route::post('/add/save', [PostController::class, 'store']);
+Route::get('/post/{id}/delete', [PostController::class, 'delete']);
+Route::post('/post/{id}/delete/archive', [PostController::class, 'archive']);
 
+/*** CategoryController ***/
+Route::get('/category/{category}', [CategoryController::class, 'getFilteredPostsByCategory']);
 Route::get('/add/category', [CategoryController::class, 'create']);
 Route::post('/add/save/category', [CategoryController::class, 'store']);
 
-//change this later to be in a filtered posts controller
-Route::get('/categories/{category}', function (Category $category) {
-    return view('posts', [
-        'posts' => $category->posts
-    ]);
-});
-//change this later to be in a filtered posts controller
-Route::get('/author/{author}', function (User $author) {
-    return view('posts', [
-        'posts' => $author->posts
-    ]);
-});
+/*** UserController ***/
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/posts-author/{author}', [UserController::class, 'getFilteredPostsByAuthor']);
 
-//add a comment controller
-Route::post('/add/save/comment', function (Request $request) {
-    return view('add', [
-        Comment::store($request)
-    ]);
-});
+/*** CommentController ***/
+Route::post('/add/save/comment', [CommentController::class, 'post']);
 
-
-//users controller
-Route::get('/users', function () {
-    return view('users', [
-        'users' => User::all()
-    ]);
-});
-
-Route::get('/', function () {
-    return view('home');
-});
+/*** IndexController ***/
+Route::get('/', [IndexController::class, 'home']);
+//add a method for showing most popular posts later and or most recently commented on posts

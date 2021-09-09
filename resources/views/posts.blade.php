@@ -21,12 +21,12 @@
 
                 @if($post->author)
                     <strong>Post author:</strong>
-                    <a href="/author/<?= $post->author->id ?>">{{ $post->author->username }}</a> |
+                    <a href="/posts-author/<?= $post->author->id ?>">{{ $post->author->username }}</a> |
                 @endif
 
                 @if($post->category)
                     <strong>Post category:</strong>
-                    <a href="/categories/{{ $post->category->id}}">{{ $post->category->title}}</a>
+                    <a href="/category/{{ $post->category->id}}">{{ $post->category->title}}</a>
                 @else
                     No assigned category
                 @endif

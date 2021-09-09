@@ -6,6 +6,7 @@
 
 @section('body')
     @foreach($users as $user)
+        <hr>
         <article>
             <h1>
                 Username: {{ $user->username }}
@@ -15,5 +16,6 @@
                 Full name: {{ $user->forename }} {{ $user->surname }}
             </p>
         </article>
+        <hr>
     @endforeach
 @endsection

@@ -14,7 +14,7 @@
 
         @if($post->author)
             <p>
-                <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/categories/{{ $post->category->id}}"> {{ $post->category->title}}</a>
+                <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/category/{{ $post->category->id}}"> {{ $post->category->title}}</a>
             </p>
         @endif
         <h3>
