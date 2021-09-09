@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +25,11 @@ Route::post('/add/save/category', [CategoryController::class, 'store']);
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/posts-author/{author}', [UserController::class, 'getFilteredPostsByAuthor']);
+Route::get('/profile', [UserController::class, 'getProfile']);
 
 /*** CommentController ***/
 Route::post('/add/save/comment', [CommentController::class, 'store']);
 
-/*** IndexController ***/
-Route::get('/', [IndexController::class, 'home']);
+/*** HomeController ***/
+Route::get('/', [HomeController::class, 'home']);
 //add a method for showing most popular posts later and or most recently commented on posts

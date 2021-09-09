@@ -10,13 +10,15 @@
     <a class="navBtn" href="<?php resource_path()?>/add">Add Post</a>
     <a class="navBtn" href="<?php resource_path()?>/add/category">Add Category</a>
     <a class="navBtn" href="<?php resource_path()?>/users">Users</a>
+{{--    <a class="navBtn" href="<?php resource_path()?>/profile">profile</a>--}}
+    <a class="navBtn" href="<?php resource_path()?>/login">Log in</a>
 </div>
 
 <header>
     @yield('header'){{--later make a compontent header that incorporates a logo etc, maybe put the nav in there--}}
 </header>
 
-<body >
+<body>
     @yield('body')
 </body>
 

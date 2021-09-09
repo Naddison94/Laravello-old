@@ -13,6 +13,11 @@ class UserController extends Controller
         ]);
     }
 
+    public function getProfile()
+    {
+
+    }
+
     public function getFilteredPostsByAuthor(User $author)
     {
         return view('posts', [

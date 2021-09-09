@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 
@@ -12,9 +13,8 @@ class CategoryController
 {
     public function getFilteredPostsByCategory(Category $category)
     {
-        return view('posts', [
-            'posts' => $category->posts
-        ]);
+        $posts = Post::latest()->where('category_id', $category->id)->where('archived', 0)->get();
+        return view('posts', compact('posts'));
     }
 
     public function create(Category $category)
