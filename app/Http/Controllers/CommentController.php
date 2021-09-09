@@ -3,14 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
-    public function post(Request $request)
+    public function store(Request $request)
     {
-        return view('add', [
-            Comment::store($request)
+        $validator = Validator::make($request->all(), [
+            'comment' => 'required|max:500'
         ]);
+
+        $post = Post::findOrFail($request->post_id);
+
+        if ($validator->fails()) {
+            return view('post', compact('post'))->withErrors($validator);
+        }
+
+        Comment::store($request);
+        return view('post', compact('post'));
     }
 }

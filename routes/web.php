@@ -13,7 +13,7 @@ Route::get('/post/{id}', [PostController::class, 'show']);
 Route::get('/post/{id}/edit',[PostController::class, 'edit']);
 Route::post('/post/{id}/edit/save', [PostController::class, 'update']);
 Route::get('/add', [PostController::class, 'create']);
-Route::post('/add/save', [PostController::class, 'store']);
+Route::post('/add/save/post', [PostController::class, 'store']);
 Route::get('/post/{id}/delete', [PostController::class, 'delete']);
 Route::post('/post/{id}/delete/archive', [PostController::class, 'archive']);
 
@@ -27,7 +27,7 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/posts-author/{author}', [UserController::class, 'getFilteredPostsByAuthor']);
 
 /*** CommentController ***/
-Route::post('/add/save/comment', [CommentController::class, 'post']);
+Route::post('/add/save/comment', [CommentController::class, 'store']);
 
 /*** IndexController ***/
 Route::get('/', [IndexController::class, 'home']);

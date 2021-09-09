@@ -32,13 +32,13 @@ class PostController extends Controller
         $newPost = Post::store($request);
 
         $post = Post::findOrFail($newPost->id);
-        return  view('post', compact('post'));
+        return view('post', compact('post'));
     }
 
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return  view('post', compact('post'));
+        return view('post', compact('post'));
     }
 
     public function edit($id, Post $post)
