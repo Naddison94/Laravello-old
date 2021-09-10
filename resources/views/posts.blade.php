@@ -38,5 +38,13 @@
 
             @if($post->img) <img class="center" src="/uploads/{{ $post->img }}">@endif
         </article>
+
+
     @endforeach
+    {{ $posts->links('pagination::bootstrap-4') }}
+    @if($posts->count() > 10)
+        Posts on this page: {{  $posts->count() }}<br>
+    @endif
+
+    Total Posts: {{ $posts->total() }}<br>
 @endsection

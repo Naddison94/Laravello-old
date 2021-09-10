@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="<?php resource_path()?>/app.css">
 <title>Laravello</title>
-
+{{--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">--}}
 <div class="nav">
     @yield('nav')
     <a class="navBtn" href="/">Home</a>

@@ -13,7 +13,7 @@ class CategoryController
 {
     public function getFilteredPostsByCategory(Category $category)
     {
-        $posts = Post::latest()->where('category_id', $category->id)->where('archived', 0)->get();
+        $posts = Post::latest()->where('category_id', $category->id)->where('archived', 0)->paginate(10);
         return view('posts', compact('posts'));
     }
 
