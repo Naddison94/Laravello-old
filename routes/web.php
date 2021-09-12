@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Post\Category\CategoryController;
-use App\Http\Controllers\Post\Comment\CommentController;
+use App\Http\Controllers\Post\Category\PostCategoryController;
+use App\Http\Controllers\Post\Comment\PostCommentController;
+use App\Http\Controllers\Post\Filter\PostFilterController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserController;
@@ -21,18 +22,23 @@ Route::post('/add/save/post', [PostController::class, 'store']);
 Route::get('/post/{id}/delete', [PostController::class, 'delete']);
 Route::post('/post/{id}/delete/archive', [PostController::class, 'archive']);
 
-/*** CategoryController ***/
-Route::get('/category/{category}', [CategoryController::class, 'getFilteredPostsByCategory']);
-Route::get('/add/category', [CategoryController::class, 'create']);
-Route::post('/add/save/category', [CategoryController::class, 'store']);
+/*** PostCategoryController ***/
+
+Route::get('/add/category', [PostCategoryController::class, 'create']);
+Route::post('/add/save/category', [PostCategoryController::class, 'store']);
+
+/*** PostCommentController ***/
+Route::post('/add/save/comment', [PostCommentController::class, 'store']);
+
+/*** PostFilterController ***/
+Route::get('/posts/author/{author}', [PostFilterController::class, 'getFilteredPostsByAuthor']);
+Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilteredPostsByCategory']);
 
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/posts-author/{author}', [UserController::class, 'getFilteredPostsByAuthor']);
 Route::get('/profile', [UserController::class, 'getProfile']);
 
-/*** CommentController ***/
-Route::post('/add/save/comment', [CommentController::class, 'store']);
+
 
 /*** HomeController ***/
 Route::get('/', [HomeController::class, 'home']);

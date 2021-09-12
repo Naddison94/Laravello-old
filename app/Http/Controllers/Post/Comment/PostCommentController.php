@@ -8,7 +8,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class CommentController extends Controller
+class PostCommentController extends Controller
 {
     public function store(Request $request)
     {

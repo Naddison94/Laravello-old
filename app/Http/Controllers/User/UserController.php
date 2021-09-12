@@ -19,14 +19,4 @@ class UserController extends Controller
     {
 
     }
-
-    public function getFilteredPostsByAuthor(User $author)
-    {
-//        return view('posts', [
-//            'posts' => $author->posts
-//        ]);
-
-        $posts = Post::latest()->where('archived', 0)->where('user_id', $author->id)->paginate(10);
-        return view('posts', compact('posts'));
-    }
 }
