@@ -6,21 +6,9 @@
 
 @section('body')
 <!--show categories, later put them in a drop down to assign to added post-->
-<?php //dd($category) ?>
-
-{{--@if($errors->any())--}}
-{{--    <div>--}}
-{{--        <ul>--}}
-{{--            @foreach ($errors->all() as $error)--}}
-{{--                <li>{{ $error }}</li>--}}
-{{--            @endforeach--}}
-{{--        </ul>--}}
-{{--    </div>--}}
-{{--@endif--}}
-
-@isset($success_message)
+@isset($success)
     <div>
-        <label><?=$success_message?></label>
+        <label><?=$success?></label>
     </div>
 @endisset
 

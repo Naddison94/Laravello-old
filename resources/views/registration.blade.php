@@ -5,15 +5,7 @@
 @endsection
 
 @section('body')
-{{--    @if ($errors->any())--}}
-{{--        <div>--}}
-{{--            <ul>--}}
-{{--                @foreach ($errors->all() as $error)--}}
-{{--                    <li>{{ $error }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+
 
     <form action="/registration/save" method="POST"><br><br><br><br>
         @csrf

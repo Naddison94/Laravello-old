@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -42,10 +44,15 @@ class PostController extends Controller
         return view('post', compact('post'));
     }
 
-    public function edit($id, Post $post)
+    public function edit($id)
     {
+        $post = Post::findOrFail($id);
+
+        if (Auth::id() != $post->user_id) {
+            return redirect('/post/' . $id)->withErrors('You cannot edit a post you do not own');
+        }
+
         return view('edit', [
-            'id'    => $id,
             'post' => $post
         ]);
     }

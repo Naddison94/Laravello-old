@@ -23,6 +23,6 @@ class PostCategoryController
         return view('add', [
             Category::store($request),
              'category' => Category::all()
-        ])->with('success_message', "$request->title category has been added");
+        ])->with('success', "$request->title category has been added");
     }
 }
