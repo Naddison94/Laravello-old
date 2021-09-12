@@ -17,10 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //todo change from factory to seeders as I am no longer using faker
-         User::factory(1)->create();
-         Post::factory(1)->create();
-         Comment::factory(1)->create();
-         Category::factory(1)->create();
+        $this->call([
+           UsersSeeder::class,
+           CategoriesSeeder::class,
+           PostsSeeder::class,
+           CommentsSeeder::class
+        ]);
     }
 }

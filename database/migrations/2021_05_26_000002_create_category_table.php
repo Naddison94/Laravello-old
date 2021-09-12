@@ -15,7 +15,7 @@ class CreateCategoryTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id');
             $table->string('title');
             $table->timestamps();
             $table->boolean('archived')->default(false);
