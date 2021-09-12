@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Comonent.layout')
 
 @section('header')
     <h1 class="center">

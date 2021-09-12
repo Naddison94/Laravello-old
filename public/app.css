@@ -29,13 +29,72 @@ article + article {
     padding-bottom: 3rem;
 }
 
-.comment {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 1px solid #c5c5c5;
-    border-bottom: 1px solid #c5c5c5;
+.post-section {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border: 1px solid #c5c5c5;
 }
 
+.post-title {
+    background-color: #edf2f7;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #c5c5c5;
+}
+
+.post-author {
+    display:inline;
+    padding: 0.5rem;
+    border: 1px solid #c5c5c5;
+}
+
+.post-excerpt {
+    padding: 0.5rem;
+}
+
+.post-body {
+
+}
+
+.post-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 1px solid #c5c5c5;
+}
+
+.comment-section {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #c5c5c5;
+}
+
+.comment-add {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border: 1px solid #c5c5c5;
+}
+
+.comment-card {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #c5c5c5;
+    background-color: #1a202c;
+}
+
+.comment-author {
+    display:inline;
+    color: gold;
+}
+
+.comment {
+    color: gold;
+}
 .navBtn {
     background-color: #1a202c; /* Green */
     border: none;
