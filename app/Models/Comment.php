@@ -11,7 +11,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public $table = 'comments';
+    public $table = 'post_comments';
 
     /**
      * The attributes that are mass assignable.

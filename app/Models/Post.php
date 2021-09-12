@@ -12,6 +12,7 @@ class Post extends model
 {
     use HasFactory;
 
+    public $table = 'post';
     /**
      * The attributes that are mass assignable.
      *
@@ -26,11 +27,6 @@ class Post extends model
         'img',
         'archived',
     ];
-
-//    public function allPosts()
-//    {
-//            return Post::all()->where('archived', 0);
-//    }
 
     public static function findOrFail($id)
     {

@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Category extends Model
 {
     use HasFactory;
 
-    public $table = 'categories';
+    public $table = 'post_categories';
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +30,7 @@ class Category extends Model
         ]);
 
         $category = new Category();
+        $category->user_id = Auth::id() ?: null;
         $category->title = $request->title;
         $category->save();
 
