@@ -16,6 +16,5 @@
                 Full name: {{ $user->forename }} {{ $user->surname }}
             </p>
         </article>
-        <hr>
     @endforeach
 @endsection

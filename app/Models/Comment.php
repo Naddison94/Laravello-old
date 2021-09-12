@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Comment extends Model
 {
@@ -27,12 +28,10 @@ class Comment extends Model
     public static function store(Request $request)
     {
         $comment = new Comment();
-        $comment->user_id = 1;
+        $comment->user_id = Auth::id() ?: null;
         $comment->post_id = $request->post_id;
         $comment->comment = $request->comment;
         $comment->save();
-
-        return redirect('/post/' . $request->post_id);
     }
 
     public function posts()

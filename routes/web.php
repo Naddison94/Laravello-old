@@ -23,7 +23,6 @@ Route::get('/post/{id}/delete', [PostController::class, 'delete']);
 Route::post('/post/{id}/delete/archive', [PostController::class, 'archive']);
 
 /*** PostCategoryController ***/
-
 Route::get('/add/category', [PostCategoryController::class, 'create']);
 Route::post('/add/save/category', [PostCategoryController::class, 'store']);
 
@@ -37,8 +36,6 @@ Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilte
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/profile', [UserController::class, 'getProfile']);
-
-
 
 /*** HomeController ***/
 Route::get('/', [HomeController::class, 'home']);

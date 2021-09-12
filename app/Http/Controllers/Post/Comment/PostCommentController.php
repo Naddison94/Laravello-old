@@ -23,6 +23,6 @@ class PostCommentController extends Controller
         }
 
         Comment::store($request);
-        return view('post', compact('post'));
+        return redirect('/post/' . $request->post_id);
     }
 }

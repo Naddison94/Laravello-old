@@ -19,9 +19,6 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-
-//        $user = User::all()->firstWhere('username', $request->username);
-//        auth()->login($user);
         if (auth()->attempt($attributes)) {
             return redirect('/')->with('success', 'Successfully logged in');
         }

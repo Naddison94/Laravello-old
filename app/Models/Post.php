@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends model
 {
@@ -49,6 +50,7 @@ class Post extends model
         }
 
         $post = new Post;
+        $post->user_id = Auth::id() ?: null;
         $post->category_id = $request->category_id ?: DEFAULT_CATEGORY;
         $post->title = $request->title;
         $post->excerpt = $request->excerpt;
@@ -59,9 +61,7 @@ class Post extends model
             $request->image->move(public_path('uploads'), $fileName);
         }
 
-        #Category::store($request->category_id);
         return $post;
-        #return redirect("/post/" . $post->id);
     }
 
     public static function edit(Request $request)
