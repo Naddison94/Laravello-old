@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\SessionController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Post\Category\CategoryController;
+use App\Http\Controllers\Post\Comment\CommentController;
+use App\Http\Controllers\Post\PostController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Registration\RegistrationController;
+use App\Http\Controllers\Session\SessionController;
+
 use Illuminate\Support\Facades\Route;
 
 /*** PostController ***/

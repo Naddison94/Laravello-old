@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Session;
+
+use App\Http\Controllers\Controller;
 
 class SessionController extends Controller
 {
