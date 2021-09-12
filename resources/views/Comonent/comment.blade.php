@@ -13,7 +13,11 @@
 <div class="comment-section">
     @foreach($post->comments as $comment)
         <div class="comment-card">
-            @if($comment->user) <label class="comment-author"><strong>{{ $comment->user->username }}</strong> - {{ $comment->created_at }}</label>@endif
+            @if($comment->user)
+                <label class="comment-author"><strong>{{ $comment->user->username }}</strong> - {{ $comment->created_at }}</label>
+            @else
+                <label class="comment-author"><strong>Anon</strong> - {{ $comment->created_at }}</label>
+            @endif
             <p class="comment">{{ $comment->comment }}</p>
         </div>
     @endforeach
