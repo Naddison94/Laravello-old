@@ -6,15 +6,15 @@
 
 @section('body')
 
-@if($errors->any())
-    <div>
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+{{--@if($errors->any())--}}
+{{--    <div>--}}
+{{--        <ul>--}}
+{{--            @foreach($errors->all() as $error)--}}
+{{--                <li>{{ $error }}</li>--}}
+{{--            @endforeach--}}
+{{--        </ul>--}}
+{{--    </div>--}}
+{{--@endif--}}
 
 <article>
         <a href="<?php resource_path() ?>/post/<?= $post->id ?>/edit">Edit this post</a>

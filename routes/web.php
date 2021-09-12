@@ -3,7 +3,10 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +36,14 @@ Route::post('/add/save/comment', [CommentController::class, 'store']);
 /*** HomeController ***/
 Route::get('/', [HomeController::class, 'home']);
 //add a method for showing most popular posts later and or most recently commented on posts
+
+/*** RegistrationController ***/
+Route::get('/registration', [RegistrationController::class, 'create'])->middleware('guest');
+Route::post('/registration/save', [RegistrationController::class, 'store'])->middleware('guest');
+
+/*** LoginController ***/
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login/user', [LoginController::class, 'login'])->middleware('guest');
+
+/*** SessionController ***/
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');

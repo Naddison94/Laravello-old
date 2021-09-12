@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -17,7 +19,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'forename',
+        'surname',
+        'username',
         'email',
         'password',
     ];
@@ -41,6 +45,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function create(Request $request)
+    {
+        $user = new User;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        return $user->save();
+    }
+
+    public function setPasswordAttribute(string $password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -50,4 +69,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
 }
