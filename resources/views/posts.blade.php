@@ -21,7 +21,7 @@
 
                 @if($post->author)
                     <strong>Post author:</strong>
-                    <a href="/posts/author/<?= $post->author->id ?>">{{ $post->author->username }}</a> |
+                    <a href="/posts/author/<?= $post->author->username ?>">{{ $post->author->username }}</a> |
                 @endif
 
                 @if($post->category)

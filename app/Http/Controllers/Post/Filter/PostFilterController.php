@@ -16,8 +16,9 @@ class PostFilterController extends Controller
         return view('posts', compact('posts'));
     }
 
-    public function getFilteredPostsByAuthor(User $author)
+    public function getFilteredPostsByAuthor($slug)
     {
+        $author = User::query()->firstWhere('username', $slug);
         $posts = Post::latest()->where('user_id', $author->id)->where('archived', 0)->paginate(10);
         return view('posts', compact('posts'));
     }

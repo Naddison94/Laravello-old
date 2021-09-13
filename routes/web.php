@@ -30,7 +30,7 @@ Route::post('/add/save/category', [PostCategoryController::class, 'store']);
 Route::post('/add/save/comment', [PostCommentController::class, 'store']);
 
 /*** PostFilterController ***/
-Route::get('/posts/author/{author}', [PostFilterController::class, 'getFilteredPostsByAuthor']);
+Route::get('/posts/author/{user:slug}', [PostFilterController::class, 'getFilteredPostsByAuthor']);
 Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilteredPostsByCategory']);
 
 /*** UserController ***/
