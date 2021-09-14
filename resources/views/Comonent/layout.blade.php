@@ -6,12 +6,10 @@
 <div class="nav">
     @yield('nav')
     <a class="navBtn" href="/">Home</a>
-
     <a class="navBtn" href="<?php resource_path()?>/users">Users</a>
     <div class="dropdown">
         <a class="dropbtn" href="<?php resource_path()?>/posts">View Posts</a>
         <div class="dropdown-content">
-
             <a class="navBtn" href="<?php resource_path()?>/add">Add Post</a>
             <a class="navBtn" href="<?php resource_path()?>/add/category">Add Category</a>
         </div>

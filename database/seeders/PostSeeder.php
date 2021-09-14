@@ -33,8 +33,8 @@ class PostSeeder extends Seeder
                 'img' => 'default_image.jpg',
                 'user_id' => 2,
                 'category_id' => 1,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'created_at' => Carbon::tomorrow()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::tomorrow()->format('Y-m-d H:i:s')
             ]
         ]);
     }

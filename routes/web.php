@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 Route::get('/post/{id}/edit',[PostController::class, 'edit']);
-Route::post('/post/{id}/edit/save', [PostController::class, 'update']);
+Route::post('/post/{id}/edit/save', [PostController::class, 'update']);//change to put
 Route::get('/add', [PostController::class, 'create']);
 Route::post('/add/save/post', [PostController::class, 'store']);
 Route::get('/post/{id}/delete', [PostController::class, 'delete']);
@@ -35,6 +35,7 @@ Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilte
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/profile', [UserController::class, 'getProfile']);
+Route::post('/user/{id}/upload/profile-image', [UserController::class, 'uploadProfileImg']);
 
 /*** HomeController ***/
 Route::get('/', [HomeController::class, 'home']);
