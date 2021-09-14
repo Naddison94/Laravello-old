@@ -1,0 +1,10 @@
+//todo
+
+add phpunit testing to check sql constraint errors
+separate logic into request files
+separate add/edit view logic into post/add.blade.php category/add.blade.php etc
+add more validation to posts/categories/comments for better security
+add profile page, add new col to user table for profile pic or add a new table to store such things
+maybe make categories only viewable when making a post if it belongs to you or if set to global=0, see default for guests
+add featured/top rated posts section to home page
+add upvote/downvote system on posts and comments

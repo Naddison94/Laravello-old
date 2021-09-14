@@ -16,11 +16,27 @@ class PostCommentsSeeder extends Seeder
     public function run()
     {
         DB::table('post_comments')->insert([
-            'user_id'  => 1,
-            'post_id'  => 1,
-            'comment'  => 'This is a comment',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            [
+                'user_id' => 1,
+                'post_id' => 1,
+                'comment' => 'This is a comment',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'user_id' => 2,
+                'post_id' => 1,
+                'comment' => 'So is this',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'user_id' => 2,
+                'post_id' => 2,
+                'comment' => 'Garlic n chips',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]
         ]);
     }
 }
