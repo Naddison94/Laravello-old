@@ -9,11 +9,12 @@
         <input type="submit" value="submit">
     </form>
     @endauth
-
+    <div>
     @if($user->img)
-        <img src="/user/{{ $user->id }}/profileImg/{{ $user->img }}">
+        <img class="profile-image" src="/user/{{ $user->id }}/profileImg/{{ $user->img }}">
     @else
-        <img src="/uploads/default_img.jpg">
+        <img class="profile-image" src="/uploads/default_image.jpg">
     @endif
+    </div>
 @endsection
 
