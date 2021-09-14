@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -31,6 +32,14 @@ class Comment extends Model
         $comment->user_id = Auth::id() ?: null;
         $comment->post_id = $request->post_id;
         $comment->comment = $request->comment;
+        $comment->save();
+    }
+
+    public static function edit($id, Request $request)
+    {
+        $comment = Comment::find($id);
+        $comment->comment = $request->comment;
+        $comment->updated_at = Carbon::now();
         $comment->save();
     }
 

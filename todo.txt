@@ -9,9 +9,12 @@ maybe make categories only viewable when making a post if it belongs to you or i
 add featured/top rated posts section to home page
 add upvote/downvote system on posts and comments
 delete a comment if you own it / if you own the post
-edit a comment if you own it
+
 allow user to input returns when adding a data in a text area
 change location of uploaded files for posts
 add slug to profile page
 make it so unused profile images get deleted
 viewing profile of other people through postauthor/comments/users page
+
+//done rough
+edit a comment if you own it

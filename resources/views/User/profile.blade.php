@@ -1,4 +1,4 @@
-@extends('Comonent.layout')
+@extends('Component.layout')
 
 @section('body')
     @auth()

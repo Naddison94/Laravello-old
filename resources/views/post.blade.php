@@ -1,7 +1,7 @@
-@extends('Comonent.layout')
+@extends('Component.layout')
 
 @section('body')
-    @include('Comonent.post')
-    @include('Comonent.comment')
+    @include('Component.post')
+    @include('Component.comment')
 @endsection
 

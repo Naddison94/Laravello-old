@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class PostCommentController extends Controller
@@ -24,5 +25,34 @@ class PostCommentController extends Controller
 
         Comment::store($request);
         return redirect('/post/' . $request->post_id);
+    }
+
+    public function edit($id)
+    {
+        $comment = Comment::all()->firstWhere('id', $id);
+
+        if (Auth::id() != $comment->user_id) {
+            return back()->withErrors('error', 'You can only edit a comment that you made');
+        }
+
+        return view('Post.Comment.edit', [
+           'comment' => $comment
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        Comment::edit($id, $request);
+        return view('home');
+    }
+
+    public function delete()
+    {
+
+    }
+
+    public function archive()
+    {
+
     }
 }
