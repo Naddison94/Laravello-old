@@ -16,9 +16,9 @@
             <a class="navBtn" href="<?php resource_path()?>/add/category">Add Category</a>
         </div>
     </div>
+
     @auth
-        <span class="navBtn"> {{ auth()->user()->username }} is logged in</span>
-        <a class="navBtn" href="<?php resource_path()?>/profile">profile</a>
+        <a class="navBtn" href="<?php resource_path()?>/profile">{{ auth()->user()->username }}'s Profile</a>
         <form action="/logout" method="POST">
             @csrf
             <input type="submit" value="logout">

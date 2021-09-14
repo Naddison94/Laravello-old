@@ -9,7 +9,6 @@ use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Registration\RegistrationController;
 use App\Http\Controllers\Session\SessionController;
-
 use Illuminate\Support\Facades\Route;
 
 /*** PostController ***/
