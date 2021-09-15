@@ -6,10 +6,6 @@
     </h1>
 @endsection
 
-@section('nav')
-
-@endsection
-
 @section('body')
     <h2 class="center">
         Hello there, this is my site

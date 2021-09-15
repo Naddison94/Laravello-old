@@ -1,13 +1,5 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
-@section('header')
-
-@endsection
-
 @section('body')
     @foreach($posts as $post)
         <article>

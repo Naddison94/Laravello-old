@@ -13,13 +13,13 @@ class PostFilterController extends Controller
     public function getFilteredPostsByCategory(Category $category)
     {
         $posts = Post::latest()->where('category_id', $category->id)->where('archived', 0)->paginate(10);
-        return view('posts', compact('posts'));
+        return view('Post.posts', compact('posts'));
     }
 
     public function getFilteredPostsByAuthor($slug)
     {
         $author = User::query()->firstWhere('username', $slug);
         $posts = Post::latest()->where('user_id', $author->id)->where('archived', 0)->paginate(10);
-        return view('posts', compact('posts'));
+        return view('Post.posts', compact('posts'));
     }
 }

@@ -1,37 +1,8 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
 @section('body')
-<!--show categories, later put them in a drop down to assign to added post-->
-@isset($success)
-    <div>
-        <label><?=$success?></label>
-    </div>
-@endisset
-
 <div>
-@isset($category)
-    <br><br>
-    <form action="/add/save/category" method="POST">
-        @csrf
-        <h3>
-            Add a new category
-        </h3>
-
-        <hr>
-
-        <label for="title">Category Title</label>
-        <input type="text" id="title" name="title"><br><br>
-        <input type="submit" value="Submit">
-    </form>
-@endisset
-
 @isset($categories)
-<br><br>
-
 <form action="/add/save/post" method="POST" enctype="multipart/form-data">
     @csrf
     <h3>

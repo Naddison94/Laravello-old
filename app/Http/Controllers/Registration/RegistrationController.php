@@ -10,7 +10,7 @@ class RegistrationController extends Controller
 {
     public function create()
     {
-        return view('registration');
+        return view('Registration.registration');
     }
 
     public function store(Request $request)
@@ -27,6 +27,6 @@ class RegistrationController extends Controller
 
         session()->flash('success', 'Your account has been successfully created');
 
-        return view('login');
+        return view('User.login');
     }
 }

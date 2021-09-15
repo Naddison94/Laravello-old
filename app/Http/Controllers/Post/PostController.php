@@ -15,12 +15,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->where('archived', 0)->with('category', 'author')->paginate(10);
-        return view('posts', compact('posts'));
+        return view('Post.posts', compact('posts'));
     }
 
     public function create(User $author)
     {
-        return view('add', [
+        return view('Post.add', [
             'author' => $author,
             'categories' => Category::all()
         ]);
@@ -35,13 +35,13 @@ class PostController extends Controller
         $newPost = Post::store($request);
 
         $post = Post::findOrFail($newPost->id);
-        return view('post', compact('post'));
+        return view('Post.post', compact('post'));
     }
 
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('post', compact('post'));
+        return view('Post.post', compact('post'));
     }
 
     public function edit($id)

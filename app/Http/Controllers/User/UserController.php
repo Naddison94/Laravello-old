@@ -12,14 +12,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('users', [
+        return view('User.users', [
             'users' => User::all()
         ]);
     }
 
     public function getProfile()
     {
-        return view('user.profile', [
+        return view('User.profile', [
            'user' => $user = User::query()->firstWhere('id', Auth::id())
         ]);
     }
@@ -33,7 +33,7 @@ class UserController extends Controller
         $user = User::find($idUser);
         User::storeProfileImg($user, $request);
 
-        return view('user.profile', [
+        return view('User.profile', [
             'user' => $user->refresh()
         ])->with('success', 'profile image added');
     }

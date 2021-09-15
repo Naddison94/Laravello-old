@@ -1,9 +1,5 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
 @section('body')
     <form action="/login/user" method="POST"><br><br><br><br>
         @csrf

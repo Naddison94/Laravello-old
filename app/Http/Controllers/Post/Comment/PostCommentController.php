@@ -20,7 +20,7 @@ class PostCommentController extends Controller
         $post = Post::findOrFail($request->post_id);
 
         if ($validator->fails()) {
-            return view('post', compact('post'))->withErrors($validator);
+            return view('Posts.post', compact('post'))->withErrors($validator);
         }
 
         Comment::store($request);
@@ -43,7 +43,7 @@ class PostCommentController extends Controller
     public function update($id, Request $request)
     {
         Comment::edit($id, $request);
-        return view('home');
+        return view('Home.home');
     }
 
     public function delete()

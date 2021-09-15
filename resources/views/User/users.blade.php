@@ -1,9 +1,5 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
 @section('body')
     @foreach($users as $user)
         <hr>

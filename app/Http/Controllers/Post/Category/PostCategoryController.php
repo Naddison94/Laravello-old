@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\Post\Category;
 
 use App\Http\Controllers\Controller;
@@ -13,14 +12,14 @@ class PostCategoryController
 {
     public function create(Category $category)
     {
-        return view('add', [
+        return view('Post.Category.add', [
             'category' => $category
         ]);
     }
 
     public function store(Request $request)
     {
-        return view('add', [
+        return view('Post.Category.add', [
             Category::store($request),
              'category' => Category::all()
         ])->with('success', "$request->title category has been added");

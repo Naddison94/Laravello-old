@@ -1,12 +1,6 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
 @section('body')
-
-
     <form action="/registration/save" method="POST"><br><br><br><br>
         @csrf
         <label for="username">Username</label>
