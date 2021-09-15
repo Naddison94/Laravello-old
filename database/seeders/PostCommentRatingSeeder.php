@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class PostCommentRatingSeeder extends Seeder
@@ -14,13 +15,14 @@ class PostCommentRatingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('post_comment_ratings')->insert([
+        DB::table('post_comment_rating')->insert([
             [
-                'comment_id' => 1,
+                'post_comment_id' => 1,
                 'user_id' => 1,
                 'upvote' => 1,
                 'downvote' => 0,
-                'archived' => 0
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ]);
     }

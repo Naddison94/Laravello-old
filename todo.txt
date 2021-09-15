@@ -18,7 +18,8 @@ viewing profile of other people through postauthor/comments/users page
 messaging system https://www.youtube.com/watch?v=UoBb1751tAM&ab_channel=LaravelDaily
 reply to a comment, if more than 2 comment replys then open up a comment thread in a new page
 update migrations for profile image
-
+models must use singular not plural
+models need fillable updating to have updated_at
 //in progress
 add upvotes/downvotes for posts/comments migrations
 -models too
