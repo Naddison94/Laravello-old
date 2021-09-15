@@ -15,6 +15,8 @@ change location of uploaded files for posts
 add slug to profile page
 make it so unused profile images get deleted
 viewing profile of other people through postauthor/comments/users page
+messaging system https://www.youtube.com/watch?v=UoBb1751tAM&ab_channel=LaravelDaily
+reply to a comment, if more than 2 comment replys then open up a comment thread in a new page
 
 //done rough
 edit a comment if you own it
