@@ -1,4 +1,5 @@
 <article class="post-section">
+
     @auth()
         @if(auth()->user()->id == $post->user_id)
             <a href="<?php resource_path() ?>/post/<?= $post->id ?>/edit">Edit this post</a>
@@ -9,6 +10,10 @@
         {{ $post->title }}
     </h1>
 
+    @livewire('post-votes', [
+        'post_id' => $post->id,
+        'upvotes' => $post->postUpvoteCount
+    ])
     @if($post->author)
         <p class="post-author">
             <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title}}</a>

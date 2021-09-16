@@ -104,4 +104,9 @@ class Post extends model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function postRating()
+    {
+        return $this->hasMany(PostRating::class);
+    }
 }

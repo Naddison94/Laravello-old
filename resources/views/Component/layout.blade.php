@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 
+@livewireStyles
+@livewireScripts
+
 <link rel="stylesheet" href="<?php resource_path()?>/app.css">
 {{--<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">--}}
 <title>Laravello</title>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostRating;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,12 @@ class PostController extends Controller
 
     public function show($id)
     {
+//sort this out I should really be using eloquent relationships
         $post = Post::findOrFail($id);
+        $post['postUpvoteCount'] = PostRating::countUpvotes($post->id);
+//        $postDownvotes = PostRating::countDownvotes($id);
+
+
         return view('Post.post', compact('post'));
     }
 

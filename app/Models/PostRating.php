@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PostRating extends Model
 {
@@ -24,8 +25,25 @@ class PostRating extends Model
         'archived',
     ];
 
+    public static function countUpvotes($id)
+    {
+
+        $postUpvotes = PostRating::where('post_id' , $id)->where('upvote', 1)->where('archived', 0)->get();
+
+        return $postUpvotes->count();
+    }
+
+//    public static function countDownvotes($id)
+//    {
+//        $downvoteCount = static::all()->where('post_id', $id);
+//
+//        return $post;
+//    }
+
+
+
     public function post()
     {
-        return $this->hasOne(Comment::class);
+        return $this->hasOne(Post::class);
     }
 }
