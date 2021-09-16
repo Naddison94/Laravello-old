@@ -26,9 +26,10 @@
 24. file upload size limit
 
 //in progress
-8. add upvote/downvote system on posts and comments https://www.youtube.com/watch?v=wAnu_qXbV8c&ab_channel=LaravelDaily
+show votes on post list and comments
 
 //done
 edit a comment if you own it
 Refactor views into sub dirs
 add upvotes/downvotes for posts/comments migrations and models
+8. add upvote/downvote system on posts  https://www.youtube.com/watch?v=wAnu_qXbV8c&ab_channel=LaravelDaily
