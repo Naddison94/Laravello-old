@@ -69,7 +69,7 @@ class PostController extends Controller
             'post' => $post
         ]);
     }
-    
+
     public function archive(Request $request)
     {
         return Post::archive($request);

@@ -21,12 +21,14 @@
 19. models must use singular
 20. tables must be plural
 21. models need fillable updating to have updated_at
+22. add category selection to post editing
+23. file uploads to posts should go into their own sub dirs with the post id
+24. file upload size limit
 
 //in progress
-add upvotes/downvotes for posts/comments migrations
--models too
--component
+8. add upvote/downvote system on posts and comments https://www.youtube.com/watch?v=wAnu_qXbV8c&ab_channel=LaravelDaily
 
 //done
 edit a comment if you own it
 Refactor views into sub dirs
+add upvotes/downvotes for posts/comments migrations and models

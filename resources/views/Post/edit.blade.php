@@ -6,7 +6,7 @@
     <form action="/post/{id}/edit/save" method="POST" enctype="multipart/form-data">
         @csrf
         <h3>
-            Edit category
+            Edit Post
         </h3>
 
         <hr>
