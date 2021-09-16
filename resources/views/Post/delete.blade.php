@@ -1,9 +1,5 @@
 @extends('Component.layout')
 
-@section('nav')
-
-@endsection
-
 @section('body')
     <div>
         <form action="/post/<?= $id ?>/delete/archive" method="POST" >

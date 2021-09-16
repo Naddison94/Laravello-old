@@ -52,7 +52,7 @@ class PostController extends Controller
             return redirect('/post/' . $id)->withErrors('You cannot edit a post you do not own');
         }
 
-        return view('edit', [
+        return view('Post.edit', [
             'post' => $post
         ]);
     }
@@ -64,11 +64,12 @@ class PostController extends Controller
 
     public function delete($id, Post $post)
     {
-        return view('delete', [
+        return view('Post.delete', [
             'id'    => $id,
             'post' => $post
         ]);
     }
+    
     public function archive(Request $request)
     {
         return Post::archive($request);
