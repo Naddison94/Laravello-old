@@ -12,7 +12,8 @@
 
     @livewire('post-votes', [
         'post_id' => $post->id,
-        'upvotes' => $post->postUpvoteCount
+        'upvotes' => $post->postUpvoteCount,
+        'downvotes' => $post->postDownvoteCount
     ])
     @if($post->author)
         <p class="post-author">

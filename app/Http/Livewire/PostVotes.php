@@ -10,8 +10,8 @@ class PostVotes extends Component
     public $post_id;
     public $upvotes;
     public $downvotes;
-    public $upvoted = false;
-    public $downvoted = false;
+    public bool $upvoted = false;
+    public bool $downvoted = false;
 
     public function mount($post_id, $upvotes = 0, $downvotes = 0)
     {
@@ -27,9 +27,10 @@ class PostVotes extends Component
 
     public function upvote($upvote)
     {
-        $hasUpvoted = PostRating::where('post_id' , $this->post_id)->where('user_id', auth()->id())->where('archived', 0)->first();
+        //            PostRating::where('post_id', $this->post_id)->where('user_id', auth()->id())->update(['archived' => 0]);
+        $hasUpvotedPost = PostRating::select('upvote')->where('post_id' , $this->post_id)->where('user_id', auth()->id())->where('archived', 0)->first();
 
-        if ($hasUpvoted) {
+        if ($hasUpvotedPost) {
             $this->upvoted = true;
             return;
         }
@@ -40,7 +41,30 @@ class PostVotes extends Component
             'upvote' => $upvote
         ]);
 
-
         $this->upvotes += $upvote;
+    }
+
+    public function downvote($downvote)
+    {
+        $hasDownvotedPost = PostRating::select('downvote')->where('post_id' , $this->post_id)->where('user_id', auth()->id())->where('archived', 0)->first();
+
+        if ($hasDownvotedPost) {
+            $this->downvoted = true;
+            return;
+        }
+
+        postRating::create([
+            'post_id' => $this->post_id,
+            'user_id' => auth()->id(),
+            'downvote' => $downvote
+        ]);
+
+        $this->downvotes += $downvote;
+    }
+
+    public function resetVotes()
+    {
+        PostRating::where('post_id', $this->post_id)->where('user_id', auth()->id())->update(['archived' => 1]);
+        return redirect('/post/' . $this->post_id);
     }
 }

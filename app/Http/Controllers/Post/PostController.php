@@ -44,8 +44,7 @@ class PostController extends Controller
 //sort this out I should really be using eloquent relationships
         $post = Post::findOrFail($id);
         $post['postUpvoteCount'] = PostRating::countUpvotes($post->id);
-//        $postDownvotes = PostRating::countDownvotes($id);
-
+        $post['postDownvoteCount'] = PostRating::countDownvotes($post->id);
 
         return view('Post.post', compact('post'));
     }

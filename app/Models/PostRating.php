@@ -27,20 +27,13 @@ class PostRating extends Model
 
     public static function countUpvotes($id)
     {
-
-        $postUpvotes = PostRating::where('post_id' , $id)->where('upvote', 1)->where('archived', 0)->get();
-
-        return $postUpvotes->count();
+        return PostRating::where('post_id' , $id)->where('upvote', 1)->where('archived', 0)->count();
     }
 
-//    public static function countDownvotes($id)
-//    {
-//        $downvoteCount = static::all()->where('post_id', $id);
-//
-//        return $post;
-//    }
-
-
+    public static function countDownvotes($id)
+    {
+        return PostRating::where('post_id' , $id)->where('downvote', 1)->where('archived', 0)->count();
+    }
 
     public function post()
     {
