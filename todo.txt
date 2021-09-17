@@ -24,6 +24,7 @@
 22. add category selection to post editing
 23. file uploads to posts should go into their own sub dirs with the post id
 24. file upload size limit
+25. refeshing page after saving a new post causes duplicates
 
 //in progress
 show votes on post list and comments
