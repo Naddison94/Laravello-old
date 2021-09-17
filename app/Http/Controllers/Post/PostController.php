@@ -33,10 +33,8 @@ class PostController extends Controller
             'title' => 'required|max:80'
         ]);
 
-        $newPost = Post::store($request);
-
-        $post = Post::findOrFail($newPost->id);
-        return view('Post.post', compact('post'));
+        $post = Post::store($request);
+        return redirect('/post/' . $post->id)->with('success', 'Post added');
     }
 
     public function show($id)
