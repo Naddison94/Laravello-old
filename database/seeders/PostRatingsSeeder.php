@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class PostCommentRatingSeeder extends Seeder
+class PostRatingsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class PostCommentRatingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('post_comment_rating')->insert([
+        DB::table('post_ratings')->insert([
             [
-                'post_comment_id' => 1,
+                'post_id' => 1,
                 'user_id' => 1,
                 'upvote' => 1,
                 'downvote' => 0,

@@ -12,7 +12,7 @@ class Post extends model
 {
     use HasFactory;
 
-    public $table = 'post';
+    public $table = 'posts';
     /**
      * The attributes that are mass assignable.
      *

@@ -9,7 +9,7 @@ class PostCommentRating extends Model
 {
     use HasFactory;
 
-    public $table = 'post_comment_rating';
+    public $table = 'post_comment_ratings';
     /**
      * The attributes that are mass assignable.
      *

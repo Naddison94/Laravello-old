@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class PostSeeder extends Seeder
+class PostsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('post')->insert([
+        DB::table('posts')->insert([
             [
                 'title' => 'This is the first post',
                 'excerpt' => 'DB:Seed',

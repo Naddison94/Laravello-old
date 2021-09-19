@@ -20,7 +20,7 @@ class UserController extends Controller
     public function getProfile()
     {
         return view('User.profile', [
-           'user' => $user = User::query()->firstWhere('id', Auth::id())
+           'user' => User::query()->firstWhere('id', Auth::id())
         ]);
     }
 
