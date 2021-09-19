@@ -21,7 +21,7 @@
     </div>
 
     @auth
-        <a class="navBtn" href="<?php resource_path()?>/profile">{{ auth()->user()->username }}'s Profile</a>
+        <a class="navBtn" href="<?php resource_path() ?>/profile/<?= auth()->user()->username ?>">{{ auth()->user()->username }}'s Profile</a>
         <form action="/logout" method="POST">
             @csrf
             <input type="submit" value="logout">

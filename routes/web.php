@@ -38,7 +38,7 @@ Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilte
 
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/profile', [UserController::class, 'getProfile']);
+Route::get('/profile/{user:slug}', [UserController::class, 'getProfile']);
 Route::post('/user/{id}/upload/profile-image', [UserController::class, 'uploadProfileImg']);
 
 /*** HomeController ***/

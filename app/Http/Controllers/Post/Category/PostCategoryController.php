@@ -19,9 +19,8 @@ class PostCategoryController
 
     public function store(Request $request)
     {
-        return view('Post.Category.add', [
-            Category::store($request),
-             'category' => Category::all()
-        ])->with('success', "$request->title category has been added");
+        Category::store($request);
+        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->paginate(10);
+        return view('Post.posts', compact('posts'))->with('success', "$request->title category has been added");
     }
 }
