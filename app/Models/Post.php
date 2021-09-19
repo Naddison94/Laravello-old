@@ -69,6 +69,7 @@ class Post extends model
 
         $post = Post::find($request->post_id);
         $post->title = $request->title ?: $post->title;
+        $post->category_id = $request->category_id ?: $post->category_id;
         $post->excerpt = $request->excerpt ?: $post->excerpt;
         $post->body = $request->body ?: $post->body;
         $post->img = $fileName ?: $post->img;

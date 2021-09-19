@@ -41,7 +41,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-//sort this out I should really be using eloquent relationships
+        //sort this out I should really be using eloquent relationships
         $post = Post::findOrFail($id);
         $post['postUpvoteCount'] = PostRating::countUpvotes($post->id);
         $post['postDownvoteCount'] = PostRating::countDownvotes($post->id);
@@ -53,7 +53,7 @@ class PostController extends Controller
             $arrCommentRatings[] = $objComment;
         }
 
-        $comments = $arrCommentRatings;
+        $comments = $post->comments->isEmpty() ? $post->comments : $arrCommentRatings;
 
         return view('Post.post', compact('post', 'comments'));
     }
@@ -61,13 +61,15 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        $categories = Category::all()->where('archived', 0);
 
         if (Auth::id() != $post->user_id) {
             return redirect('/post/' . $id)->withErrors('You cannot edit a post you do not own');
         }
 
         return view('Post.edit', [
-            'post' => $post
+            'post' => $post,
+            'categories' => $categories
         ]);
     }
 

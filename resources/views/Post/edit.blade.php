@@ -11,6 +11,16 @@
 
         <hr>
 
+        <label for="category_id">Select a category for this post</label>
+        <select id="category_id" name="category_id">
+            <option value="<?= $post->category->id ?>"><?= $post->category->title ?></option>
+            @foreach($categories as $category)
+                @if($category->id != $post->category->id)
+                    <option value="<?= $category->id ?>"><?= $category->title ?></option>
+                @endif
+            @endforeach
+        </select> <br><br>
+
         <label for="title">Post Title</label>
         <input type="text" id="title" name="title" value="{{ $post->title }}"><br><br>
         <label for="excerpt">Post Excerpt:</label>
