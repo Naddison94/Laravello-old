@@ -102,7 +102,7 @@ class Post extends model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->where('archived', '=', 0);
     }
 
     public function postRating()

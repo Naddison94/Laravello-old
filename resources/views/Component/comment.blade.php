@@ -48,12 +48,11 @@
                     </form>
                     <form action="/comment/{{ $comment->id }}/delete" method="POST">
                      @csrf
-                        @auth
+
                             @if(auth()->user()->id == $comment->user_id)
                                 <input type="hidden" name="post_id" value="<?= $comment->post_id ?>">
                                 <input type="submit" value="delete">
                             @endif
-                        @endauth
                     </form>
                 @endif
             @endauth

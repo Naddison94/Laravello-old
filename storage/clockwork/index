@@ -564,3 +564,6 @@
 1632075819-4091-546071861,1632075819.3061,GET,/post/1,"App\Http\Controllers\Post\PostController@show",500,372.18284606934,request
 1632075826-1351-1845081270,1632075826.054,GET,/post/1,"App\Http\Controllers\Post\PostController@show",500,337.81695365906,request
 1632075848-0503-1499037343,1632075847.9698,GET,/post/1,"App\Http\Controllers\Post\PostController@show",200,267.68898963928,request
+1632075957-9059-1686816241,1632075957.8038,GET,/post/1,"App\Http\Controllers\Post\PostController@show",200,336.03692054749,request
+1632076139-0985-2130950088,1632076138.9796,GET,/post/1,"App\Http\Controllers\Post\PostController@show",200,295.64094543457,request
+1632076159-0989-1726958466,1632076159.0133,GET,/post/1,"App\Http\Controllers\Post\PostController@show",200,235.02588272095,request
