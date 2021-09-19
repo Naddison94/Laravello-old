@@ -25,6 +25,8 @@
 //features
 
 //improvements
+delete redirect to posts index
+view profile from author name on post, remove meme anchor maybe
 15. viewing profile of other people through postauthor/comments/users page
 
 //in progress
