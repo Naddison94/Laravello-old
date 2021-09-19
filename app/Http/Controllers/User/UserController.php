@@ -17,10 +17,10 @@ class UserController extends Controller
         ]);
     }
 
-    public function getProfile()
+    public function getProfile($slug)
     {
         return view('User.profile', [
-           'user' => User::query()->firstWhere('id', Auth::id())
+           'user' => User::query()->firstWhere('username', $slug)
         ]);
     }
 

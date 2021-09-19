@@ -6,13 +6,11 @@
 5. add profile page, add new col to user table for profile pic or add a new table to store such things
 6. maybe make categories only viewable when making a post if it belongs to you or if set to global=0, see default for guests
 7. add featured/top rated posts section to home page
-8. add upvote/downvote system on comments
 9. delete a comment if you own it / if you own the post
 10. redirect to post after editing a comment, make edit form show in a fancybox, close with js
 11. allow user to input returns when adding a data in a text area
 12. change location of uploaded files for posts
 14. make it so unused profile images get deleted
-15. viewing profile of other people through postauthor/comments/users page
 16. messaging system https://www.youtube.com/watch?v=UoBb1751tAM&ab_channel=LaravelDaily
 17. reply to a comment, if more than 2 comment replys then open up a comment thread in a new page
 19. models must use singular
@@ -27,9 +25,10 @@
 //features
 
 //improvements
-13. add slug to profile page
+15. viewing profile of other people through postauthor/comments/users page
 
 //in progress
+
 
 //done
 edit a comment if you own it
@@ -39,3 +38,5 @@ add upvotes/downvotes for posts/comments migrations and models
 25. refeshing page after saving a new post causes duplicates
 18. update migrations for profile image
 20. tables must be plural
+13. add slug to profile page
+8. add upvote/downvote system on comments

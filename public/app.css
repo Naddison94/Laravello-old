@@ -196,3 +196,9 @@ a.button1:hover{
     background-position: center center;
     background-size: cover;
 }
+
+.profile-image-comment {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

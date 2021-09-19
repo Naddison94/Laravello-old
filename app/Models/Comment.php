@@ -48,6 +48,14 @@ class Comment extends Model
         $comment->save();
     }
 
+    public static function archive($id)
+    {
+        $comment = Comment::find($id);
+        $comment->archived = 1;
+        $comment->updated_at = Carbon::now();
+        $comment->save();
+    }
+
     public function posts()
     {
        return $this->belongsTo(Post::class);

@@ -43,12 +43,14 @@ class PostCommentController extends Controller
     public function update($id, Request $request)
     {
         Comment::edit($id, $request);
-        return view('Home.home');
+        return redirect("/post/" . $request->post_id);
     }
 
-    public function delete()
+    public function delete($id, Request $request)
     {
 
+        Comment::archive($id);
+        return redirect("/post/" . $request->post_id);
     }
 
     public function archive()

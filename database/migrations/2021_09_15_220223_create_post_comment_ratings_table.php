@@ -15,7 +15,7 @@ class CreatePostCommentRatingsTable extends Migration
     {
         Schema::create('post_comment_ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('post_comment_id')->nullable();
+            $table->foreignId('comment_id')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->integer('upvote')->nullable();
             $table->integer('downvote')->nullable();
@@ -31,6 +31,6 @@ class CreatePostCommentRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_comment_rating');
+        Schema::dropIfExists('post_comment_ratings');
     }
 }
