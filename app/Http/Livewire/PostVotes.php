@@ -27,6 +27,10 @@ class PostVotes extends Component
 
     public function upvote($upvote)
     {
+        if (!auth()->id()) {
+            return;
+        }
+
         //            PostRating::where('post_id', $this->post_id)->where('user_id', auth()->id())->update(['archived' => 0]);
         $hasUpvotedPost = PostRating::select('upvote')->where('post_id' , $this->post_id)->where('user_id', auth()->id())->where('archived', 0)->first();
 
@@ -46,6 +50,10 @@ class PostVotes extends Component
 
     public function downvote($downvote)
     {
+        if (!auth()->id()) {
+            return;
+        }
+
         $hasDownvotedPost = PostRating::select('downvote')->where('post_id' , $this->post_id)->where('user_id', auth()->id())->where('archived', 0)->first();
 
         if ($hasDownvotedPost) {
@@ -64,6 +72,10 @@ class PostVotes extends Component
 
     public function resetVotes()
     {
+        if (!auth()->id()) {
+            return;
+        }
+
         PostRating::where('post_id', $this->post_id)->where('user_id', auth()->id())->update(['archived' => 1]);
         return redirect('/post/' . $this->post_id);
     }

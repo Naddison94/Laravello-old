@@ -15,6 +15,7 @@
         'upvotes' => $post->postUpvoteCount,
         'downvotes' => $post->postDownvoteCount
     ])
+
     @if($post->author)
         <p class="post-author">
             <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title}}</a>
