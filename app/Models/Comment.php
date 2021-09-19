@@ -26,6 +26,11 @@ class Comment extends Model
         'archived',
     ];
 
+    public static function findOrFail($id)
+    {
+        return static::all()->firstWhere('id', $id);
+    }
+
     public static function store(Request $request)
     {
         $comment = new Comment();
@@ -51,5 +56,10 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::Class);
+    }
+
+    public function commentRating()
+    {
+        return $this->hasMany(PostCommentRating::Class);
     }
 }

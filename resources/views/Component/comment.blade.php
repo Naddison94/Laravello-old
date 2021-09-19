@@ -11,7 +11,15 @@
 </div>
 
 <div class="comment-section">
-    @foreach($post->comments as $comment)
+
+    @foreach($comments as $comment)
+        @livewire('post-comment-votes', [
+        'post_id' => $comment->post_id,
+        'comment_id' => $comment->id,
+        'upvotes' => $comment->commentUpvoteCount,
+        'downvotes' => $comment->commentDownvoteCount
+        ])
+
         <div class="comment-card">
             <form action="/comment/{{ $comment->id }}/edit" method="POST">
             @csrf

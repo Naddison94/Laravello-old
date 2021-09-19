@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
+use App\Models\PostCommentRating;
 use App\Models\PostRating;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -44,7 +46,16 @@ class PostController extends Controller
         $post['postUpvoteCount'] = PostRating::countUpvotes($post->id);
         $post['postDownvoteCount'] = PostRating::countDownvotes($post->id);
 
-        return view('Post.post', compact('post'));
+        foreach ($post->comments as $comment) {
+            $objComment = Comment::findOrFail($comment->id);
+            $objComment['commentUpvoteCount'] = PostCommentRating::countUpvotes($comment->id);
+            $objComment['commentDownvoteCount'] = PostCommentRating::countDownvotes($comment->id);
+            $arrCommentRatings[] = $objComment;
+        }
+
+        $comments = $arrCommentRatings;
+
+        return view('Post.post', compact('post', 'comments'));
     }
 
     public function edit($id)

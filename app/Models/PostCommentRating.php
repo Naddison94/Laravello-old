@@ -16,7 +16,7 @@ class PostCommentRating extends Model
      * @var array
      */
     protected $fillable = [
-        'post_comment_id',
+        'comment_id',
         'user_id',
         'upvote',
         'downvote',
@@ -24,8 +24,23 @@ class PostCommentRating extends Model
         'archived',
     ];
 
+    public static function countUpvotes($id)
+    {
+        return PostCommentRating::where('comment_id' , $id)->where('upvote', 1)->where('archived', 0)->count();
+    }
+
+    public static function countDownvotes($id)
+    {
+        return PostCommentRating::where('comment_id' , $id)->where('downvote', 1)->where('archived', 0)->count();
+    }
+
     public function comment()
     {
         return $this->hasOne(Comment::class);
     }
+
+//    public function ratings()
+//    {
+//        return $this->belongsTo(Comment::Class);
+//    }
 }
