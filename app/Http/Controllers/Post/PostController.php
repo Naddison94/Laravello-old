@@ -16,7 +16,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments')->paginate(10);
+        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments', 'postUpvotes', 'postDownvotes')->paginate(10);
         return view('Post.posts', compact('posts'));
     }
 
