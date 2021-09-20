@@ -9,7 +9,6 @@ use App\Models\Post;
 use App\Models\PostCommentRating;
 use App\Models\PostRating;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +16,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->paginate(10);
+        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments')->paginate(10);
         return view('Post.posts', compact('posts'));
     }
 
@@ -88,6 +87,7 @@ class PostController extends Controller
 
     public function archive(Request $request)
     {
-        return Post::archive($request);
+        Post::archive($request);
+        return redirect('/posts');
     }
 }
