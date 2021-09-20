@@ -18,27 +18,8 @@
 22. add category selection to post editing
 23. file uploads to posts should go into their own sub dirs with the post id
 24. file upload size limit
-26. show votes on post list
 27. try catch where I create new records
 
-//bugs
-
-//features
-
-//improvements
-view profile from author name on post, remove category anchor tag maybe
-15. viewing profile of other people through postauthor/users page
-
-//in progress
 
 
-//done
-edit a comment if you own it
-Refactor views into sub dirs
-add upvotes/downvotes for posts/comments migrations and models
-8. add upvote/downvote system on posts  https://www.youtube.com/watch?v=wAnu_qXbV8c&ab_channel=LaravelDaily
-25. refeshing page after saving a new post causes duplicates
-18. update migrations for profile image
-20. tables must be plural
-13. add slug to profile page
-8. add upvote/downvote system on comments
+
