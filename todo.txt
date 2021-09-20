@@ -19,6 +19,7 @@
 23. file uploads to posts should go into their own sub dirs with the post id
 24. file upload size limit
 26. show votes on post list
+27. try catch where I create new records
 
 //bugs
 
