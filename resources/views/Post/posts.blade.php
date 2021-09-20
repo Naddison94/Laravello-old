@@ -21,14 +21,20 @@
             </div>
 
             <strong>Post category:</strong>
-            <a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title}}</a>
+            <div class="tooltip">
+                <a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title }}</a>
+                <span class="tooltiptext"> See all posts in the {{ $post->category->title }} category</span>
+            </div>
         </div>
 
         <h3 class="center">
             {{ $post->excerpt }}
         </h3>
 
-        @if($post->img) <img class="center" src="/uploads/{{ $post->img }}">@endif
+        @if($post->img)
+            <img class="center" src="/uploads/{{ $post->img }}">
+        @endif
+
         <label style="color:green"> Upvotes: {{ $post->post_upvotes_count }} </label><br>
         <label style="color:red"> Downvotes: {{ $post->post_downvotes_count }}</label> <br>
         Total comments: @if($post->comments_count === 0) None, be the first to comment! @else {{ $post->comments_count }} @endif

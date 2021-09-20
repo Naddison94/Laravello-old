@@ -11,7 +11,6 @@
 </div>
 
 <div class="comment-section">
-
     @foreach($comments as $comment)
         @livewire('post-comment-votes', [
         'post_id' => $comment->post_id,

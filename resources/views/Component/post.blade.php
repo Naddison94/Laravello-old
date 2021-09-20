@@ -18,7 +18,7 @@
 
     @if($post->author)
         <p class="post-author">
-            <strong>Post author:</strong> {{ $post->author->username }} | <strong>Post category:</strong><a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title}}</a>
+            <strong>Post author:</strong> <a href="/profile/<?=$post->author->username?>">{{ $post->author->username }}</a> | <strong>Post category:</strong><a href="/posts/category/{{ $post->category->id}}">{{ $post->category->title}}</a>
         </p>
     @endif
     <h3 class="post-excerpt">
