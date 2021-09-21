@@ -23,6 +23,14 @@ class PostRatingsSeeder extends Seeder
                 'downvote' => 0,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'post_id' => 2,
+                'user_id' => 3,
+                'upvote' => 0,
+                'downvote' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ]);
     }
