@@ -19,6 +19,8 @@
 23. file uploads to posts should go into their own sub dirs with the post id
 24. file upload size limit
 27. try catch where I create new records
+28. change user 'img' to 'avatar'
+29. replace whitespace in slugs with _
 
 in progress
 profile menu drop down - edit information. Maybe new migration to store it in? Or edit users

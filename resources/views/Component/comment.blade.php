@@ -72,7 +72,11 @@
     </div>
 
         @foreach ($comment->commentReplies as $commentReply)
-            <div style="width:25%; display: flex; justify-content: flex-end" class="comment-card">
+            <div style="display: inline-block; word-wrap: break-word; width:25%; " class="comment-card">
+                <img class="profile-image-comment" src="/user/{{ $commentReply->user_id }}/profileImg/{{ App\Models\User::where(['id' => $commentReply->user_id])->pluck('img')->first() }}">
+                <label class="comment-author"><strong>{{ App\Models\User::where(['id' => $commentReply->user_id])->pluck('username')->first() }}</strong></label>
+                <label class="comment-author">- {{ $commentReply->updated_at->diffForHumans() }}</label>
+
                 <p class="comment">{{ $commentReply->reply }} </p>
             </div>
         @endforeach
