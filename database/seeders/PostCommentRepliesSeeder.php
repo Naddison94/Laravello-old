@@ -24,7 +24,7 @@ class PostCommentRepliesSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'user_id' => 2,
+                'user_id' => 3,
                 'comment_id' => 1,
                 'reply' => 'gravy n chips',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

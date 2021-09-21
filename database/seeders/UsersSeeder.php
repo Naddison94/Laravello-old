@@ -26,6 +26,7 @@ class UsersSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('kek'),
                 'remember_token' => Str::random(10),
+                'img' => 'gru.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -35,8 +36,21 @@ class UsersSeeder extends Seeder
                 'username' => 'Lulu',
                 'email' => 'luke@test.com',
                 'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoNa3Ro9llC/.og/at2.uheWG/igi',
+                'password' => Hash::make('kek'),
                 'remember_token' => Str::random(10),
+                'img' => '',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'forename' => 'Dean',
+                'surname' => 'Welsh',
+                'username' => 'The Dean',
+                'email' => 'dean@test.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('kek'),
+                'remember_token' => Str::random(10),
+                'img' => 'deano.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
