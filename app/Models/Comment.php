@@ -66,8 +66,18 @@ class Comment extends Model
         return $this->belongsTo(User::Class);
     }
 
-    public function commentRating()
+    public function commentUpvotes()
     {
-        return $this->hasMany(PostCommentRating::Class);
+        return $this->hasMany(PostCommentRating::class)->where('upvote', '=', 1)->where('archived', '=', 0);
+    }
+
+    public function commentDownvotes()
+    {
+        return $this->hasMany(PostCommentRating::class)->where('downvote', '=', 1)->where('archived', '=', 0);
+    }
+
+    public function commentReplies()
+    {
+        return $this->hasMany(CommentReply::Class);
     }
 }

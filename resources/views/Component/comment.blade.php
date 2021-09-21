@@ -20,8 +20,8 @@
         @livewire('post-comment-votes', [
         'post_id' => $comment->post_id,
         'comment_id' => $comment->id,
-        'upvotes' => $comment->commentUpvoteCount,
-        'downvotes' => $comment->commentDownvoteCount
+        'upvotes' => $comment->comment_upvotes_count,
+        'downvotes' => $comment->comment_downvotes_count
         ])
 
     <div class="comment-card">
@@ -60,7 +60,21 @@
                             @endif
                     </form>
                 @endif
-            @endauth
+
+                    <form action="/comment/{{ $comment->id }}/reply" method="POST">
+                        @csrf
+                        <textarea id="commentReply" name="commentReply" cols="50" rows="8"></textarea>
+                        <input type="hidden" name="post_id" value="<?= $comment->post_id ?>">
+                        <input type="submit" value="reply">
+                    </form>
+
+            @endif
     </div>
+
+        @foreach ($comment->commentReplies as $commentReply)
+            <div style="width:25%; display: flex; justify-content: flex-end" class="comment-card">
+                <p class="comment">{{ $commentReply->reply }} </p>
+            </div>
+        @endforeach
     @endforeach
 </div>

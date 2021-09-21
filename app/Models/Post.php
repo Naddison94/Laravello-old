@@ -106,6 +106,11 @@ class Post extends model
         return $this->hasMany(Comment::class)->where('archived', '=', 0);
     }
 
+//    public function commentReplies()
+//    {
+//        return $this->hasManyThrough(Comment::class, CommentReply::class);
+//    }
+
     public function postUpvotes()
     {
         return $this->hasMany(PostRating::class)->where('upvote', '=', 1)->where('archived', '=', 0);

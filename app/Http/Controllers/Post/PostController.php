@@ -40,19 +40,8 @@ class PostController extends Controller
 
     public function show($id)
     {
-        //sort this out I should really be using eloquent relationships
-        $post = Post::findOrFail($id);
-        $post['postUpvoteCount'] = PostRating::countUpvotes($post->id);
-        $post['postDownvoteCount'] = PostRating::countDownvotes($post->id);
-
-        foreach ($post->comments as $comment) {
-            $objComment = Comment::findOrFail($comment->id);
-            $objComment['commentUpvoteCount'] = PostCommentRating::countUpvotes($comment->id);
-            $objComment['commentDownvoteCount'] = PostCommentRating::countDownvotes($comment->id);
-            $arrCommentRatings[] = $objComment;
-        }
-
-        $comments = $post->comments->isEmpty() ? $post->comments : $arrCommentRatings;
+        $post = Post::where('id', $id)->where('archived', 0)->withCount('postUpvotes', 'postDownvotes')->first();
+        $comments = Comment::where('post_id', $id)->where('archived', 0)->with('commentReplies')->withCount('commentUpvotes', 'commentDownvotes')->get();
 
         return view('Post.post', compact('post', 'comments'));
     }

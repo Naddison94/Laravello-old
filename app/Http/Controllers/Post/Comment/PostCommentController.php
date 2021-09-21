@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Post\Comment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\CommentReply;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,8 +54,9 @@ class PostCommentController extends Controller
         return redirect("/post/" . $request->post_id);
     }
 
-    public function archive()
+    public function reply($id, Request $request)
     {
-
+        CommentReply::store($id, $request);
+        return redirect("/post/" . $request->post_id);
     }
 }

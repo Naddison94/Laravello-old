@@ -32,6 +32,7 @@ Route::post('/comment/{id}/edit', [PostCommentController::class, 'edit']);
 Route::post('/comment/{id}/edit/save', [PostCommentController::class, 'update']);
 Route::post('/comment/{id}/delete', [PostCommentController::class, 'delete']);
 Route::post('/comment/{id}/delete/archive', [PostCommentController::class, 'archive']);
+Route::post('/comment/{id}/reply', [PostCommentController::class, 'reply']);
 
 /*** PostFilterController ***/
 Route::get('/posts/author/{user:slug}', [PostFilterController::class, 'getFilteredPostsByAuthor']);
