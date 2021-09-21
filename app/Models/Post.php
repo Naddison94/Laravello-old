@@ -108,12 +108,12 @@ class Post extends model
 
     public function postUpvotes()
     {
-        return $this->hasMany(PostRating::class)->where('upvote', '=', 1);
+        return $this->hasMany(PostRating::class)->where('upvote', '=', 1)->where('archived', '=', 0);
     }
 
     public function postDownvotes()
     {
-        return $this->hasMany(PostRating::class)->where('downvote', '=', 1);
+        return $this->hasMany(PostRating::class)->where('downvote', '=', 1)->where('archived', '=', 0);
     }
 
     public function postRatings()

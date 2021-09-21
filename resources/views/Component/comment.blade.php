@@ -37,10 +37,11 @@
             <a href="/profile/<?= $comment->user->username ?>">
                 <label class="comment-author"><strong>{{ $comment->user->username }}</strong></label>
             </a>
-                <label class="comment-author">- {{ $comment->updated_at }}</label>
+                <label class="comment-author">- {{ $comment->updated_at->diffForHumans() }}</label>
         @else
-            <label class="comment-author"><strong>Anon</strong> - {{ $comment->created_at }}</label>
+            <label class="comment-author"><strong>Anon</strong> - {{ $comment->created_at->diffForHumans() }}</label>
         @endif
+
         <p class="comment">{{ $comment->comment }}</p>
 
             @auth
