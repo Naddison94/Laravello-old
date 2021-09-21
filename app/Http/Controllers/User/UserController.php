@@ -16,25 +16,4 @@ class UserController extends Controller
             'users' => User::all()
         ]);
     }
-
-    public function getProfile($slug)
-    {
-        return view('User.profile', [
-           'user' => User::query()->firstWhere('username', $slug)
-        ]);
-    }
-
-    public function uploadProfileImg($idUser, Request $request)
-    {
-        if (!$idUser == Auth::id()) {// do validation on nothing being sent in on the form and  storeProf
-            return back()->withErrors('error', 'You can only update your own profile picture');
-        }
-
-        $user = User::find($idUser);
-        User::storeProfileImg($user, $request);
-
-        return view('User.profile', [
-            'user' => $user->refresh()
-        ])->with('success', 'profile image added');
-    }
 }

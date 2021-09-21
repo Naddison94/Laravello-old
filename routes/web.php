@@ -6,6 +6,7 @@ use App\Http\Controllers\Post\Comment\PostCommentController;
 use App\Http\Controllers\Post\Filter\PostFilterController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\Profile\ProfileController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Registration\RegistrationController;
 use App\Http\Controllers\Session\SessionController;
@@ -38,8 +39,12 @@ Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilte
 
 /*** UserController ***/
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/profile/{user:slug}', [UserController::class, 'getProfile']);
-Route::post('/user/{id}/upload/profile-image', [UserController::class, 'uploadProfileImg']);
+
+/*** ProfileController ***/
+Route::get('/profile/{user:slug}', [ProfileController::class, 'getProfile']);
+Route::get('/profile/edit/{user:slug}', [ProfileController::class, 'editProfile']);
+Route::post('/profile/edit/{id}/save', [ProfileController::class, 'store']);
+//Route::post('/user/{id}/upload/profile-image', [ProfileController::class, 'uploadProfileImg']);
 
 /*** HomeController ***/
 Route::get('/', [HomeController::class, 'home']);

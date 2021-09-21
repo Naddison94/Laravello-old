@@ -4,7 +4,7 @@
 @foreach($posts as $post)
     <article>
         <a href="/post/<?=$post->id?>">
-            <h1 class="center">
+            <h1 class="post-title">
                 {{ $post->title }}
             </h1>
         </a>
@@ -39,19 +39,20 @@
         <label style="color:red"> Downvotes: {{ $post->post_downvotes_count }}</label> <br>
         Total comments: @if($post->comments_count === 0) None, be the first to comment! @else {{ $post->comments_count }} @endif
     </article>
-
-
 @endforeach
-    {{ $posts->links('pagination::bootstrap-4') }}
+
+{{ $posts->links('pagination::bootstrap-4') }}
+
 @if($posts->count() > 10)
     Posts on this page: {{  $posts->count() }}<br>
 @endif
 
-    Total Posts: {{ $posts->total() }}<br>
+Total Posts: {{ $posts->total() }}<br>
+
 @endsection
 
 <script>
     $( function() {
         $( document ).tooltip();
-    } );
+    });
 </script>
