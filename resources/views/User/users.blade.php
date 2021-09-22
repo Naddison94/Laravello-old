@@ -9,8 +9,10 @@
             </h1>
 
             <p>
-                Full name: {{ $user->forename }} {{ $user->surname }}
+                Full name: {{ $user->userInformation->forename }} {{ $user->userInformation->surname }}
             </p>
+
+            @if ($user->admin) This user is an admin @endif
         </article>
     @endforeach
 @endsection

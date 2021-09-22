@@ -18,8 +18,8 @@ class PostCommentController extends Controller
             'comment' => 'required|max:500'
         ]);
 
-        $post = Post::findOrFail($request->post_id);
-
+        $post = Post::findOrFail($request->post_id)->with('userInformation');
+        dd($post);
         if ($validator->fails()) {
             return view('Posts.post', compact('post'))->withErrors($validator);
         }

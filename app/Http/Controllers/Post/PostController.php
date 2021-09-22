@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
-use App\Models\PostCommentRating;
-use App\Models\PostRating;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +39,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::where('id', $id)->where('archived', 0)->withCount('postUpvotes', 'postDownvotes')->first();
+
         $comments = Comment::where('post_id', $id)->where('archived', 0)->with('commentReplies')->withCount('commentUpvotes', 'commentDownvotes')->get();
 
         return view('Post.post', compact('post', 'comments'));

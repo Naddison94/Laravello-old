@@ -96,6 +96,11 @@ class Post extends model
         return $this->belongsTo(User::class, "user_id");
     }
 
+    public function authorInformation()
+    {
+        return $this->hasOne(UserInformation::class, 'user_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -105,11 +110,6 @@ class Post extends model
     {
         return $this->hasMany(Comment::class)->where('archived', '=', 0);
     }
-
-//    public function commentReplies()
-//    {
-//        return $this->hasManyThrough(Comment::class, CommentReply::class);
-//    }
 
     public function postUpvotes()
     {
@@ -121,13 +121,8 @@ class Post extends model
         return $this->hasMany(PostRating::class)->where('downvote', '=', 1)->where('archived', '=', 0);
     }
 
-    public function postRatings()
-    {
-        return $this->hasMany(PostRating::class);
-    }
-
-//    public function postCommentsRating()
+//    public function postRatings()
 //    {
-//        return $this->hasManyThrough(PostCommentRating::class, Comment::class);
+//        return $this->hasMany(PostRating::class);
 //    }
 }

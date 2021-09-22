@@ -66,6 +66,11 @@ class Comment extends Model
         return $this->belongsTo(User::Class);
     }
 
+    public function userInformation()
+    {
+        return $this->belongsTo(UserInformation::class, 'user_id');
+    }
+
     public function commentUpvotes()
     {
         return $this->hasMany(PostCommentRating::class)->where('upvote', '=', 1)->where('archived', '=', 0);

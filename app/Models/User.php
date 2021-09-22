@@ -21,8 +21,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'forename',
-        'surname',
         'username',
         'email',
         'password',
@@ -86,4 +84,11 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function admin() {
+        return $this->hasOne(UserAdmin::class)->where('archived', '=', 0);
+    }
+
+    public function userInformation() {
+        return $this->hasOne(UserInformation::class);
+    }
 }
