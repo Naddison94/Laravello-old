@@ -70,7 +70,7 @@
 
             @endif
     </div>
-
+        Replies<br>
         @foreach ($comment->commentReplies as $commentReply)
             <div style="display: inline-block; word-wrap: break-word; width:25%; " class="comment-card">
                 <img class="profile-image-comment" src="/user/{{ $commentReply->user_id }}/profileImg/{{ App\Models\User::where(['id' => $commentReply->user_id])->pluck('img')->first() }}">

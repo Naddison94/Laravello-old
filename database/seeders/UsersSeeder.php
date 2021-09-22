@@ -19,38 +19,29 @@ class UsersSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'forename' => 'Nathan',
-                'surname' => 'Addison',
                 'username' => 'Naddison',
+                'password' => Hash::make('kek'),
                 'email' => 'nathan@test.com',
                 'email_verified_at' => now(),
-                'password' => Hash::make('kek'),
                 'remember_token' => Str::random(10),
-                'img' => 'gru.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'forename' => 'Luke',
-                'surname' => 'Golder',
                 'username' => 'Lulu',
                 'email' => 'luke@test.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('kek'),
                 'remember_token' => Str::random(10),
-                'img' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'forename' => 'Dean',
-                'surname' => 'Welsh',
                 'username' => 'The Dean',
                 'email' => 'dean@test.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('kek'),
                 'remember_token' => Str::random(10),
-                'img' => 'deano.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
