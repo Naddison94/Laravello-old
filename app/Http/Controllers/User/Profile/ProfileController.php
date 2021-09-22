@@ -10,12 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController
 {
-
     public function getProfile($slug)
     {
-        return view('User.Profile.profile', [
-            'user' => User::query()->firstWhere('username', $slug)
-        ]);
+        $user = User::query()->firstWhere('username', $slug);
+
+        if ($user->userinformation->last_login_date->gt($user->userinformation->last_logout_date)) {
+            $user['recent_activity'] = $user->userinformation->last_login_date->diffForHumans();
+        } else {
+            $user['recent_activity'] = $user->userinformation->last_logout_date->diffForHumans();
+        }
+
+        return view('User.Profile.profile', compact('user'));
     }
 
     public function editProfile($slug)
