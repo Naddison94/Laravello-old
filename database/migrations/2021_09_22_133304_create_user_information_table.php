@@ -24,6 +24,7 @@ class CreateUserInformationTable extends Migration
             $table->string('country')->nullable();
             $table->string('ethnicity')->nullable();
             $table->timestamp('last_login_date')->nullable();
+            $table->timestamp('last_logout_date')->nullable();
         });
     }
 

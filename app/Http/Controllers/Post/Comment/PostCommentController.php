@@ -19,7 +19,7 @@ class PostCommentController extends Controller
         ]);
 
         $post = Post::findOrFail($request->post_id)->with('userInformation');
-        dd($post);
+
         if ($validator->fails()) {
             return view('Posts.post', compact('post'))->withErrors($validator);
         }

@@ -10,6 +10,4 @@
 
         <label>{{ $user->username }}</label>
     </div>
-
 @endsection
-

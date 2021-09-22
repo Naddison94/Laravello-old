@@ -9,6 +9,8 @@ class UserInformation extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public $table = 'user_information';
 
     /**
@@ -25,7 +27,14 @@ class UserInformation extends Model
         'gender',
         'country',
         'ethnicity',
-        'last_login_date'
+        'last_login_date',
+        'last_logout_date'
+    ];
+
+    protected $dates = [
+        'last_login_date',
+        'last_logout_date',
+
     ];
 
     /**

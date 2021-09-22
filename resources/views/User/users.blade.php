@@ -5,14 +5,21 @@
         <hr>
         <article>
             <h1>
-                Username: {{ $user->username }}
+                Username: {{ $user->username }} |
+                @if ($user->admin) Admin @else User @endif
             </h1>
 
             <p>
                 Full name: {{ $user->userInformation->forename }} {{ $user->userInformation->surname }}
             </p>
 
-            @if ($user->admin) This user is an admin @endif
+            Last active:
+            @if ($user->userInformation->last_logout_date)
+                {{ $user->userInformation->last_logout_date->diffForHumans() }}<br>
+            @else
+                No recorded activity <br>
+            @endif
         </article>
     @endforeach
+    <hr>
 @endsection
