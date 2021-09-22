@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class UserInformation extends Model
 {
@@ -45,6 +46,25 @@ class UserInformation extends Model
     protected $hidden = [
 
     ];
+
+    public static function updateUserInformation(User $user, Request $request)
+    {
+        dd('222');
+    }
+
+    public static function updateAvatar(User $user, Request $request)
+    {dd('333');
+        $fileName = false;
+        if ($request->file('avatar')) {
+            $fileName = $request->file('avatar')->getClientOriginalName();
+        }
+
+        $user->img = $fileName;
+
+        if ($user->save() && $fileName != false) {
+            $request->image->move(public_path('/user/' . $user->id . '/profileImg/'), $fileName);
+        }
+    }
 
 //    public function user() {
 //        return $this->belongsTo(User::class);

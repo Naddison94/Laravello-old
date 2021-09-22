@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\Profile;
 
 
 use App\Models\User;
+use App\Models\UserInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,17 +31,22 @@ class ProfileController
         ]);
     }
 
-    public function store($idUser, Request $request)
-    {
-        if (!$idUser == Auth::id()) {// do validation on nothing being sent in on the form and  storeProf
+    public function store($user_id, Request $request)
+    {dd($request->surname);
+        if (!$user_id == Auth::id()) {// do validation on nothing being sent in on the form and  storeProf
             return back()->withErrors('error', 'You can only update your own profile picture');
         }
 
-        $user = User::find($idUser);
-        User::storeProfileImg($user, $request);
+        $user = User::find($user_id);
+
+        UserInformation::updateUserInformation($user, $request);
+
+        if ($request->avatar) {
+            UserInformation::updateAvatar($user, $request);
+        }
 
         return view('User.Profile.profile', [
             'user' => $user->refresh()
-        ])->with('success', 'profile image added');
+        ])->with('success', 'Data saved');
     }
 }

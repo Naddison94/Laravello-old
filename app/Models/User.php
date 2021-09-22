@@ -55,20 +55,6 @@ class User extends Authenticatable
         return $user->save();
     }
 
-    public static function storeProfileImg(User $user, Request $request)
-    {
-        $fileName = false;
-        if ($request->file('image')) {
-            $fileName = $request->file('image')->getClientOriginalName();
-        }
-
-        $user->img = $fileName;
-
-        if ($user->save() && $fileName != false) {
-            $request->image->move(public_path('/user/' . $user->id . '/profileImg/'), $fileName);
-        }
-    }
-
     public function setPasswordAttribute(string $password)
     {
         $this->attributes['password'] = bcrypt($password);
