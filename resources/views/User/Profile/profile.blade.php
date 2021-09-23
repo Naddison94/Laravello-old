@@ -5,7 +5,7 @@
         @if($user->userInformation->avatar)
             <img class="profile-image" src="/user/{{ $user->id }}/avatar/{{ $user->userInformation->avatar }}">
         @else
-            <img class="profile-image" src="/uploads/default_image.jpg">
+            <img class="profile-image" src="/img/default_image.jpg">
         @endif
 
 

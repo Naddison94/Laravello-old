@@ -32,7 +32,7 @@
         </h3>
 
         @if($post->img)
-            <img class="center" src="/uploads/{{ $post->img }}">
+            <img class="center" src="/post_files/{{ $post->id }}/img/{{ $post->img }}">
         @endif
 
         <label style="color:green"> Upvotes: {{ $post->post_upvotes_count }} </label><br>

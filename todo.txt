@@ -1,28 +1,21 @@
 //todo
 1. add phpunit testing to check sql constraint errors
-2. separate logic into request files? Maybe look into this later for best conventions as my functionaliy is simple I might not need to
-3. separate add/edit view logic into post/add.blade.php category/add.blade.php etc
 4. add more validation to posts/categories/comments for better security
-5. add profile page, add new col to user table for profile pic or add a new table to store such things
-6. maybe make categories only viewable when making a post if it belongs to you or if set to global=0, see default for guests
 7. add featured/top rated posts section to home page
-9. delete a comment if you own it / if you own the post
 10. redirect to post after editing a comment, make edit form show in a fancybox, close with js
 11. allow user to input returns when adding a data in a text area
 12. change location of uploaded files for posts
 14. make it so unused profile images get deleted
-16. messaging system https://www.youtube.com/watch?v=UoBb1751tAM&ab_channel=LaravelDaily
 17. if more than 2 comment replys then open up a comment thread in a new page
-19. models must use singular
-21. models need fillable updating to have updated_at
-22. add category selection to post editing
-23. file uploads to posts should go into their own sub dirs with the post id
 24. file upload size limit
 27. try catch where I create new records
 28. change user 'img' to 'avatar'
 29. replace whitespace in slugs with _
+30. move logic to services instead of controllers/models
 
-in progress
-profile menu drop down - edit information. Maybe new migration to store it in? Or edit users
+// in progress //
+23. file uploads to posts should go into their own sub dirs with the post id
 
+// look into this later //
 # hosting or something https://pages.github.com/
+16. messaging system https://www.youtube.com/watch?v=UoBb1751tAM&ab_channel=LaravelDaily

@@ -54,7 +54,7 @@ class Post extends model
         $post->img = $fileName;
 
         if ($post->save() && $fileName != false) {
-            $request->image->move(public_path('uploads'), $fileName);
+            $request->image->move(public_path("/post_files/$post->id/img/"), $fileName);
         }
 
         return $post;
@@ -75,7 +75,7 @@ class Post extends model
         $post->img = $fileName ?: $post->img;
 
         if ($post->save() && $fileName != false) {
-            $request->image->move(public_path('uploads'), $fileName);
+            $request->image->move(public_path("/post_files/$post->id/img/"), $fileName);
         }
 
         return redirect('/post/' . $post->id);

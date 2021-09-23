@@ -29,7 +29,7 @@
         {!! $post->body !!}
     </p>
 
-    @if($post->img) <img class="post-img" src="/uploads/{{ $post->img }}">@endif
+    @if($post->img) <img class="center" src="/post_files/{{ $post->id }}/img/{{ $post->img }}">@endif
 </article>
 <br>
 

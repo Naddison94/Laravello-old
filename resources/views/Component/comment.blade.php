@@ -30,7 +30,7 @@
                 @if($comment->userInformation->avatar)
                     <img class="profile-image-comment" src="/user/{{ $comment->user->id }}/avatar/{{ $comment->userInformation->avatar }}">
                 @else
-                    <img class="profile-image-comment" src="/uploads/default_image.jpg">
+                    <img class="profile-image-comment" src="/img/default_image.jpg">
                 @endif
             </a>
 
