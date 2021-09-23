@@ -47,23 +47,32 @@ class UserInformation extends Model
 
     ];
 
+
     public static function updateUserInformation(User $user, Request $request)
     {
-        dd('222');
-    }
+        $userInformation = UserInformation::find($user->id);
 
-    public static function updateAvatar(User $user, Request $request)
-    {dd('333');
-        $fileName = false;
-        if ($request->file('avatar')) {
-            $fileName = $request->file('avatar')->getClientOriginalName();
+        $userInformation->forename = $request->forename;
+        $userInformation->surname = $request->surname;
+        $userInformation->date_of_birth = $request->date_of_birth;
+        $userInformation->gender = $request->gender;
+        $userInformation->country = $request->country;
+        $userInformation->ethnicity = $request->ethnicity;
+
+        if ($request->avatar) {
+            $fileName = false;
+            if ($request->file('avatar')) {
+                $fileName = $request->file('avatar')->getClientOriginalName();
+            }
+
+            $userInformation->avatar = $fileName;
+
+            if ($user->save() && $fileName != false) {
+                $request->avatar->move(public_path('/user/' . $user->id . '/avatar/'), $fileName);
+            }
         }
 
-        $user->img = $fileName;
-
-        if ($user->save() && $fileName != false) {
-            $request->image->move(public_path('/user/' . $user->id . '/profileImg/'), $fileName);
-        }
+        $userInformation->save();
     }
 
 //    public function user() {

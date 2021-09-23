@@ -32,7 +32,7 @@ class ProfileController
     }
 
     public function store($user_id, Request $request)
-    {dd($request->surname);
+    {
         if (!$user_id == Auth::id()) {// do validation on nothing being sent in on the form and  storeProf
             return back()->withErrors('error', 'You can only update your own profile picture');
         }
@@ -40,10 +40,6 @@ class ProfileController
         $user = User::find($user_id);
 
         UserInformation::updateUserInformation($user, $request);
-
-        if ($request->avatar) {
-            UserInformation::updateAvatar($user, $request);
-        }
 
         return view('User.Profile.profile', [
             'user' => $user->refresh()

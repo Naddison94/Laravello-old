@@ -13,7 +13,7 @@
                 Full name: {{ $user->userInformation->forename }} {{ $user->userInformation->surname }}
             </p>
 
-            Last active:
+            Last logged out:
             @if ($user->userInformation->last_logout_date)
                 {{ $user->userInformation->last_logout_date->diffForHumans() }}<br>
             @else

@@ -28,7 +28,7 @@
         @if($comment->user)
             <a href="/profile/<?= $comment->user->username ?>">
                 @if($comment->userInformation->avatar)
-                    <img class="profile-image-comment" src="/user/{{ $comment->user->id }}/profileImg/{{ $comment->userInformation->avatar }}">
+                    <img class="profile-image-comment" src="/user/{{ $comment->user->id }}/avatar/{{ $comment->userInformation->avatar }}">
                 @else
                     <img class="profile-image-comment" src="/uploads/default_image.jpg">
                 @endif
@@ -73,7 +73,7 @@
         Replies<br>
         @foreach ($comment->commentReplies as $commentReply)
             <div style="display: inline-block; word-wrap: break-word; width:25%; " class="comment-card">
-                <img class="profile-image-comment" src="/user/{{ $commentReply->user_id }}/profileImg/{{ App\Models\UserInformation::where(['id' => $commentReply->user_id])->pluck('avatar')->first() }}">
+                <img class="profile-image-comment" src="/user/{{ $commentReply->user_id }}/avatar/{{ App\Models\UserInformation::where(['id' => $commentReply->user_id])->pluck('avatar')->first() }}">
                 <label class="comment-author"><strong>{{ App\Models\User::where(['id' => $commentReply->user_id])->pluck('username')->first() }}</strong></label>
                 <label class="comment-author">- {{ $commentReply->updated_at->diffForHumans() }}</label>
 
