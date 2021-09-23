@@ -37,10 +37,10 @@ class PostsSeeder extends Seeder
                 'updated_at' => Carbon::now()->subHour()->format('Y-m-d H:i:s')
             ],
             [
-                'title' => 'ORANGE MAN YES HE CAN',
-                'excerpt' => 'He\'s orange',
-                'body' => 'Orange man oooh why are you orange',
-                'img' => 'default_image.jpg',
+                'title' => 'Boop',
+                'excerpt' => 'bop',
+                'body' => '',
+                'img' => '',
                 'user_id' => 3,
                 'category_id' => 2,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
