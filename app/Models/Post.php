@@ -28,6 +28,14 @@ class Post extends model
         'archived',
     ];
 
+    public function scopeFilter($query)
+    {
+         if (request('search')) {
+             $query->where('title', 'like', '%' . request('search') . '%')
+                   ->orWhere('excerpt', 'like', '%' . request('search') . '%');
+         }
+    }
+
     public static function findOrFail($id)
     {
         $post = static::all()->firstWhere('id', $id);

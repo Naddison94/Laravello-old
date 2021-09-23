@@ -13,6 +13,7 @@
 29. replace whitespace in slugs with _
 30. move logic to services instead of controllers/models
 32. update comment count to also count replies
+33. show recent acivity on user profile page e.g. recent posts and comments
 
 // in progress //
 31. search

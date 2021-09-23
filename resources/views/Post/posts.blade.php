@@ -1,13 +1,12 @@
 @extends('Component.layout')
 
 @section('body')
-    <label>Search
-        <input type="text" id="search" name="search">
-    </label>
-
-    <label>Categories
-        <input type="text" id="Categories" name="Categories">
-    </label>
+    <form action="#" method="GET">
+        <input type="text" name="search" placeholder="search">
+    </form>
+{{--    <label>Categories--}}
+{{--        <input type="text" id="Categories" name="Categories">--}}
+{{--    </label>--}}
 @foreach($posts as $post)
     <article>
         <a href="/post/<?=$post->id?>">
@@ -54,6 +53,7 @@
     Posts on this page: {{  $posts->count() }}<br>
 @endif
 
+    <hr>
 Total Posts: {{ $posts->total() }}<br>
 
 @endsection

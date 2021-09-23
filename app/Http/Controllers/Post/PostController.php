@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments', 'postUpvotes', 'postDownvotes')->paginate(10);
+        $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments', 'postUpvotes', 'postDownvotes')->filter()->paginate(10);
         return view('Post.posts', compact('posts'));
     }
 
