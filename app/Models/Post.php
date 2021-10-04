@@ -32,7 +32,8 @@ class Post extends model
     {
          if (request('search')) {
              $query->where('title', 'like', '%' . request('search') . '%')
-                   ->orWhere('excerpt', 'like', '%' . request('search') . '%');
+                   ->orWhere('excerpt', 'like', '%' . request('search') . '%')
+                   ->orWhere('category_id', '=', request('search'));
          }
     }
 

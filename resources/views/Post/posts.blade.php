@@ -2,11 +2,20 @@
 
 @section('body')
     <form action="#" method="GET">
-        <input type="text" name="search" placeholder="search">
+
+        <label>Filter Post title and excerpt <input type="text" name="search" placeholder="search"></label>
     </form>
-{{--    <label>Categories--}}
-{{--        <input type="text" id="Categories" name="Categories">--}}
-{{--    </label>--}}
+
+    <form action="#" method="GET">
+        <label for="search">Filter by a category</label>
+        <select id="search" name="search">
+            <option value="0">Select a category</option>
+            @foreach($categories as $category)
+                    <option value="<?= $category->id ?>"><?= $category->title ?></option>
+            @endforeach
+        </select>
+        <input type="submit" value="search">
+    </form>
 @foreach($posts as $post)
     <article>
         <a href="/post/<?=$post->id?>">

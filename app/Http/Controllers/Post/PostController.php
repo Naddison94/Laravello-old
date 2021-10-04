@@ -15,7 +15,8 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = Post::latest()->where('archived', 0)->with('category', 'author')->withCount('comments', 'postUpvotes', 'postDownvotes')->filter()->paginate(10);
-        return view('Post.posts', compact('posts'));
+        $categories = Category::all()->where('archived', 0);
+        return view('Post.posts', compact('posts', 'categories'));
     }
 
     public function create(User $author)
