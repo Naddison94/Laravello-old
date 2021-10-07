@@ -10,9 +10,11 @@
         <label for="search">Filter by a category</label>
         <select id="search" name="search">
             <option value="0">Select a category</option>
-            @foreach($categories as $category)
-                    <option value="<?= $category->id ?>"><?= $category->title ?></option>
-            @endforeach
+            @isset($categories)
+                @foreach($categories as $category)
+                        <option value="<?= $category->id ?>"><?= $category->title ?></option>
+                @endforeach
+            @endisset
         </select>
         <input type="submit" value="search">
     </form>

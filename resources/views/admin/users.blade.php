@@ -31,7 +31,7 @@
                 {{ App\Models\User::where(['id' => $user->archived_by])->pluck('username')->first() }}<br>
             @endif
 
-            @if (!App\Models\UserAdmin::where(['id' => $user->id])->first())
+            @if (!App\Models\UserAdmin::where(['id' => $user->id])->where('archived', 0)->first())
                 @if ($user->archived)
                     <p style="color:red">archived</p>
                     <form action="/admin/user/restore" method="POST">
