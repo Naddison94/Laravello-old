@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers\User\Profile;
-
 
 use App\Models\User;
 use App\Models\UserInformation;

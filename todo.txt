@@ -12,6 +12,7 @@
 32. update comment count to also count replies
 33. show recent acivity on user profile page e.g. recent posts and comments
 34. count comment replies in total comments count posts index
+35. integrity constraint on empty comment reply
 
 // in progress //
 

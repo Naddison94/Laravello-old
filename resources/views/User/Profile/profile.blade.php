@@ -15,4 +15,16 @@
                 Last active: {{ $user->recent_activity }}<br>
             @endif
     </div>
+
+    <br><br>
+
+    <div>
+        <h4>Recent Comments:</h4>
+        @foreach($user->comments as $userComment)
+            <div>
+                Post Title: {{ App\Models\Post::where('id', $userComment->post_id)->pluck('title')->first() }} <br>
+                Comment: {{ $userComment->comment }}
+            </div> <hr>
+        @endforeach
+    </div>
 @endsection
