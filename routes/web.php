@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Post\Category\PostCategoryController;
 use App\Http\Controllers\Post\Comment\PostCommentController;
@@ -39,7 +40,7 @@ Route::get('/posts/author/{user:slug}', [PostFilterController::class, 'getFilter
 Route::get('/posts/category/{category}', [PostFilterController::class, 'getFilteredPostsByCategory']);
 
 /*** UserController ***/
-Route::get('/users', [UserController::class, 'index']);
+//Route::get('/users', [UserController::class, 'index']);
 
 /*** ProfileController ***/
 Route::get('/profile/{user:slug}', [ProfileController::class, 'getProfile']);
@@ -61,3 +62,8 @@ Route::post('/login/user', [LoginController::class, 'login'])->middleware('guest
 
 /*** SessionController ***/
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+/*** AdminController ***/
+Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin/users', [AdminController::class, 'users']);

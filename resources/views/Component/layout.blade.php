@@ -9,7 +9,11 @@
 <div class="nav">
     @yield('nav')
     <a class="navBtn" href="/">Home</a>
-    <a class="navBtn" href="<?php resource_path()?>/users">Users</a>
+
+    @if(session()->get('isAdmin'))
+        <a class="navBtn" href="<?php resource_path()?>/admin">Admin</a>
+    @endif
+
     <div class="dropdown">
         <a class="dropbtn" href="<?php resource_path()?>/posts">View Posts</a>
         @auth

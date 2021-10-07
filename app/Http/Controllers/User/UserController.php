@@ -10,10 +10,5 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return view('User.users', [
-            'users' => User::all()
-        ]);
-    }
+
 }

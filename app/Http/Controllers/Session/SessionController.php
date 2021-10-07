@@ -17,6 +17,8 @@ class SessionController extends Controller
 
         auth()->logout();
 
+        session()->flush();
+
         return redirect('/')->with('success', 'Logged out');
     }
 }
