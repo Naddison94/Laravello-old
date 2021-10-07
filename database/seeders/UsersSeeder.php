@@ -37,7 +37,7 @@ class UsersSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'username' => 'The Dean',
+                'username' => 'The_Dean',
                 'email' => 'dean@test.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('kek'),

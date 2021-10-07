@@ -65,5 +65,6 @@ Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth'
 
 /*** AdminController ***/
 Route::get('/admin', [AdminController::class, 'index']);
-
 Route::get('/admin/users', [AdminController::class, 'users']);
+Route::post('/admin/user/archive', [AdminController::class, 'archive']);
+Route::post('/admin/user/restore', [AdminController::class, 'restore']);

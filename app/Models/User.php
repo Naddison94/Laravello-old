@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -51,6 +52,24 @@ class User extends Authenticatable
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = $request->password;
+
+        return $user->save();
+    }
+
+    public static function archive($user_id)
+    {
+        $user = User::find($user_id);
+        $user->archived_by = Auth::id();
+        $user->archived = 1;
+
+        return $user->save();
+    }
+
+    public static function restore($user_id)
+    {
+        $user = User::find($user_id);
+        $user->archived_by = null;
+        $user->archived = 0;
 
         return $user->save();
     }

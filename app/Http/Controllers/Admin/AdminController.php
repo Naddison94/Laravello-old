@@ -21,4 +21,18 @@ class AdminController extends Controller
             'users' => User::all()
         ]);
     }
+
+    public function archive(Request $request)
+    {
+        User::archive($request->user_id);
+
+        return Redirect::back();
+    }
+
+    public function restore(Request $request)
+    {
+        User::restore($request->user_id);
+
+        return Redirect::back();
+    }
 }
