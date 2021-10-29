@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\Profile;
 
+use App\Models\Comment;
 use App\Models\User;
 use App\Models\UserInformation;
 use Illuminate\Http\Request;
@@ -18,6 +19,11 @@ class ProfileController
         } else {
             $user['recent_activity'] = $user->userinformation->last_logout_date->diffForHumans();
         }
+
+        //been a while can't remember what I was doing, come back to this. Some kind of refactor to access all recent activity from $recentActivity
+//        $user = Comment::query()->firstWhere('username', $slug);
+//        $recentActivity = array();
+
 
         return view('User.Profile.profile', compact('user'));
     }
