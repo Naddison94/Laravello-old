@@ -733,3 +733,6 @@
 1632349468-8948-1393509232,1632349468.8127,GET,/posts,"App\Http\Controllers\Post\PostController@index",200,222.8479385376,request
 1632349549-1700-290558703,1632349549.0661,GET,/post/1,"App\Http\Controllers\Post\PostController@show",200,306.26392364502,request
 1632349568-9474-22701735,1632349568.8664,GET,/posts,"App\Http\Controllers\Post\PostController@index",200,196.42996788025,request
+1638063585-0790-417156106,1638063584.5729,GET,/,"App\Http\Controllers\Home\HomeController@home",200,3552.0961284637,request
+1638063588-5781-1850260589,1638063588.3231,GET,/livewire/livewire.js?id=5cdaa3ec393c09829366,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,653.01394462585,request
+1638064314-8613-127415611,1638064314.6663,GET,/,"App\Http\Controllers\Home\HomeController@home",200,356.52208328247,request

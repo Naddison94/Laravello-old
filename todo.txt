@@ -15,7 +15,8 @@
 35. integrity constraint on empty comment reply
 
 // in progress //
-refactor profile recent comments to be passed in as a variable and withcount for upvotes/downvotes
+1. add phpunit testing to check sql constraint errors
+36. refactor profile recent comments to be passed in as a variable and withcount for upvotes/downvotes
 
 // look into this later //
 # hosting or something https://pages.github.com/
